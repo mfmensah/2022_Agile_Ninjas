@@ -1,0 +1,12 @@
+html{
+    background-color: dimgrey;
+}
+
+div#houseRules {
+    width: 300px;
+    border: 15px solid green;
+    padding: 50px;
+    margin: 20px;
+    background-color: dimgrey;
+    float: left;
+}
