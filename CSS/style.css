@@ -10,3 +10,60 @@ div#houseRules {
     background-color: dimgrey;
     float: left;
 }
+
+div#roommates {
+    width: 300px;
+    border: 15px solid green;
+    padding: 50px;
+    margin: 20px;
+    background-color: dimgrey;
+    float: left;
+}
+
+/*Calender*/
+
+table {
+    font-family: sans-serif;
+    width: 100%;
+    border-spacing: 0;
+    border-collapse: separate;
+    table-layout: fixed;
+    margin-bottom: 50px;
+}
+
+.day{
+    display: block;
+    font-size: 1.2em;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    margin: 0 auto 5px;
+    padding: 5px;
+    line-height: 1.8;
+}
+
+.short{
+    display: none;
+}
+
+i{
+    vertical-align: middle;
+    font-size: 2em;
+}
+
+td {
+    text-align: center;
+    vertical-align: middle;
+    border-left: 1px solid;
+    position: relative;
+    height: 32px;
+    cursor: pointer;
+}
+
+span{
+    display: block;
+}
+
+
+
+
