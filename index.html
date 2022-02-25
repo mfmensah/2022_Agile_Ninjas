@@ -11,14 +11,70 @@
         <h2>House Rules</h2>
     <p>Do not forget to accomplish your chores.</p>
     </div>
+
+    <!-- Add, Select, Edit and Delete roommates selectors and modals -->
     <div id="roommates">
         <h2>Roommates</h2>
-        <p1>name1</p1>
-        <p2>name2</p2>
-        <p3>name3</p3>
-        <p4>name4</p4>
-        <p5>name5</p5>
-    </div>
+
+        <select name="roommatesList" id="roommatesList" multiple>
+        </select>
+
+        <div class="modals">        
+        <div id="roommatesControls">
+            
+            <input type="button" value="Add" name="Add" class="button" data-modal="addRoommate">
+            <input type="button" value="Edit" name="Edit" class="button" data-modal="editRoommate">
+            <input type="button" value="Delete" name="Delete" class="button" data-modal="deleteRoommate">
+        </div>
+        <div id="addRoommate" class="modal">
+            <div class="modal-content">
+              <div class="contact-form">
+                <a class="close">&times;</a>
+                <div class="openedModal">
+                  <h2>Add New Roommate</h2>
+                  <div>
+                    <input class="fname" type="text" name="name" placeholder="Name*" />
+                    <input type="text" name="email" placeholder="Email*" />
+                    <input type="text" name="phone" placeholder="Phone number" />
+                  </div>
+                  <button type="submit" onclick="AddNewRoommate()">Add</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="editRoommate" class="modal">
+            <div class="modal-content">
+              <div class="contact-form">
+                <span class="close">&times;</span>
+                <div class="openedModal">
+                  <h2>Edit Roommate's Info</h2>
+                  <div>
+                    <input class="fname" type="text" name="name" placeholder="Name" />
+                    <input type="text" name="email" placeholder="Email" />
+                    <input type="text" name="phone" placeholder="Phone number" />
+                  </div>
+                  <button type="submit" onclick="EditSelectedRoommate()">Submit Edit</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="deleteRoommate" class="modal">
+            <div class="modal-content">
+              <div class="contact-form">
+                <span class="close">&times;</span>
+                <div class="openedModal">
+                    <!-- Maybe will need a FORM here in the future -->
+                  <h2>Delete</h2>
+                  <p>Are you sure you want delete roommate <span id="roommateMarketForDelete">a</span> from your Chore Scheduler list?</p>
+                  <button type="submit" onclick="DeleteSelectedRoommate()">Delete</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          </div>
+        
+    </div> <!-- End of Add, edit and delete roommate selectors and modals -->
+
     <div id="weekCalender">
         <meta name="viewport" content="width=device-width, initial-scale=.2">
         <table>
@@ -253,6 +309,7 @@
         </table>
     </div>
 </div>
+<script src="JS/roommateSelection.js"></script>
 </body>
 
 </html>

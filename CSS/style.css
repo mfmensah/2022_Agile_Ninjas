@@ -1,69 +1,175 @@
-html{
-    background-color: dimgrey;
+html {
+  background-color: dimgrey;
 }
 
 div#houseRules {
-    width: 300px;
-    border: 15px solid green;
-    padding: 50px;
-    margin: 20px;
-    background-color: dimgrey;
-    float: left;
+  width: 300px;
+  border: 15px solid green;
+  padding: 50px;
+  margin: 20px;
+  background-color: dimgrey;
+  float: left;
 }
 
+/* Add, Select, Edit and Delete Roommates */
 div#roommates {
-    width: 300px;
-    border: 15px solid green;
-    padding: 50px;
-    margin: 20px;
-    background-color: dimgrey;
-    float: left;
+  width: 300px;
+  height: 185px;
+  border: 15px solid green;
+  margin: 20px;
+  background-color: dimgrey;
+  float: right;
+}
+
+#roommates > h2 {
+  text-align: center;
+  margin: 0 auto;
+}
+
+select#roommatesList {
+  float: left;
+  height: 10rem;
+  width: 14rem;
+  text-align: unset;
+}
+
+div#roommatesControls {
+  margin: auto 0;
+}
+
+div#roommatesControls > input {
+  width: 4rem;
+  margin: 0.2rem;
+}
+
+div#roommatesControls > input:hover {
+  width: 4.1rem;
+  background-color:rgb(219, 215, 215);
 }
 
 /*Calender*/
 
 table {
-    font-family: sans-serif;
-    width: 100%;
-    border-spacing: 0;
-    border-collapse: separate;
-    table-layout: fixed;
-    margin-bottom: 50px;
+  font-family: sans-serif;
+  width: 100%;
+  border-spacing: 0;
+  border-collapse: separate;
+  table-layout: fixed;
+  margin-bottom: 50px;
 }
 
-.day{
-    display: block;
-    font-size: 1.2em;
-    border-radius: 50%;
-    width: 30px;
-    height: 30px;
-    margin: 0 auto 5px;
-    padding: 5px;
-    line-height: 1.8;
+.day {
+  display: block;
+  font-size: 1.2em;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  margin: 0 auto 5px;
+  padding: 5px;
+  line-height: 1.8;
 }
 
-.short{
-    display: none;
+.short {
+  display: none;
 }
 
-i{
-    vertical-align: middle;
-    font-size: 2em;
+i {
+  vertical-align: middle;
+  font-size: 2em;
 }
 
 td {
-    text-align: center;
-    vertical-align: middle;
-    border-left: 1px solid;
-    position: relative;
-    height: 32px;
-    cursor: pointer;
+  text-align: center;
+  vertical-align: middle;
+  border-left: 1px solid;
+  position: relative;
+  height: 32px;
+  cursor: pointer;
 }
 
-span{
-    display: block;
+tr span {
+  display: block;
 }
 
-
-
-
+/* Modal style to ADD, EDIT and DELTE roommates */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 8;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+}
+.modal-content {
+  margin: 50px auto;
+  /* border: 1px solid #999; */
+  width: 60%;
+}
+.modals h2,
+.modals p {
+  margin: 0 0 20px;
+  font-weight: 400;
+  color: #999;
+}
+.contact-form > span {
+  color: #666;
+  display: block;
+  padding: 0 0 5px;
+}
+.openedModal {
+  padding: 25px;
+  margin: 25px;
+  box-shadow: 0 2px 5px #f5f5f5;
+  background: #eee;
+}
+.modals input,
+.modals textarea {
+  width: 90%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #1c87c9;
+  outline: none;
+}
+.contact-form button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  background: #1c87c9;
+  font-size: 16px;
+  font-weight: 400;
+  color: #fff;
+}
+.modals button:hover {
+  background: #2371a0;
+}
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+button.button {
+  background: none;
+  border-top: none;
+  outline: none;
+  border-right: none;
+  border-left: none;
+  border-bottom: #02274a 1px solid;
+  padding: 0 0 3px 0;
+  font-size: 16px;
+  cursor: pointer;
+}
+button.button:hover {
+  border-bottom: #a99567 1px solid;
+  color: #a99567;
+}
