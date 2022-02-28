@@ -124,7 +124,8 @@ function AddOrEditRoommate(name, email, phone) {
     name: name,
     email: email,
     phone: phone
-  }
+    }
+    sendInvitationEmail(email, name);
   roommates.push(newRoommateInfo);
 }
 
@@ -169,4 +170,23 @@ function AddOrUpdateRoomateToRows() {
     // Updating the table
     table.appendChild(new_tr_tag);
   });
+}
+
+function sendInvitationEmail(email, name) {
+    Email.send({
+        Host: "nitroco.us",
+        Port: 25,
+        Username: "chorescheduler",
+        Password: "agileninjas",
+        To: email,
+        From: "chorescheduler@nitroco.us",
+        Subject: "Invitation to use Chore Scheduler",
+        Body: "<html><h4> Hello, <strong>" + name + "</strong ></h4 ><p>You were invited to join Chore Scheduler. Please click the link below to proceed.</p><a href=\"https://mfmensah.github.io/2022_Agile_Ninjas/index.html\">View your chores</a><br></br><em>The Agile Ninjas</em><br><br><p>Please ignore this email if you don't recognize it. Thank you.</p></html>"
+    })
+        .then(function (message) {
+            if (message === 'OK') {
+                alert("An email invitation has been sent to " + name)
+            }
+        });
+    
 }
