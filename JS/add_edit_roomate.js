@@ -1,3 +1,4 @@
+// Global array to be used among functions to store roommates. Later this array should be populated by the DB data or better implementation
 let roommates = []
 
 // Modal enabler to show add, edit or delete modals roommates from select tag list
@@ -56,7 +57,7 @@ function GetSelectedRoommateFromList(parameter) {
   }
 }
 
-
+// Closes the popup box/framte for adding, editing or deleting roommates 
 function CloseCurrentModal(id) {
   document.querySelector("#"+id).style.display = "none";
 }
@@ -112,8 +113,6 @@ function DeleteSelectedRoommate() {
     }
   });
 
-  console.log(roommates);
-
   UpdateRoommatesSelectList();
 
   CloseCurrentModal("deleteRoommate");
@@ -127,9 +126,9 @@ function AddOrEditRoommate(name, email, phone) {
     phone: phone
   }
   roommates.push(newRoommateInfo);
-  // console.log(roommates);
 }
 
+// Updates the roommate select list on the page based on the roommates array 
 function UpdateRoommatesSelectList() {
   let selectListBox = document.querySelector("#roommatesList");
   
@@ -145,6 +144,7 @@ function UpdateRoommatesSelectList() {
 
 }
 
+// Updates the table with number of roommates entered by the user.
 function AddOrUpdateRoomateToRows() {
   let table = document.querySelector('.tableBody');
   
@@ -158,14 +158,15 @@ function AddOrUpdateRoomateToRows() {
     new_td_tag.appendChild(document.createTextNode(roommate.name));
     new_tr_tag.appendChild(new_td_tag);
 
+    // Adds the empty tds tags to the row
     for (let index = 0; index < 7; index++) {
       let new_empty_tr_tag = document.createElement('td');
 
       new_tr_tag.append(new_empty_tr_tag);
     
     }
-    console.log(new_tr_tag);
 
+    // Updating the table
     table.appendChild(new_tr_tag);
   });
 }
