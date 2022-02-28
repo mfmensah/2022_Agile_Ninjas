@@ -127,17 +127,45 @@ function AddOrEditRoommate(name, email, phone) {
     phone: phone
   }
   roommates.push(newRoommateInfo);
-  console.log(roommates);
+  // console.log(roommates);
 }
 
 function UpdateRoommatesSelectList() {
   let selectListBox = document.querySelector("#roommatesList");
-
+  
   selectListBox.innerHTML = "";
-
+  
   roommates.forEach(roommate => {
     let addRoommateToOptionTag = new Option(roommate.name, roommate.name);
 
     selectListBox.add(addRoommateToOptionTag, undefined);
+  });
+
+  AddOrUpdateRoomateToRows();
+
+}
+
+function AddOrUpdateRoomateToRows() {
+  let table = document.querySelector('.tableBody');
+  
+  table.innerHTML = "";
+  
+  roommates.forEach(roommate => {
+    let new_tr_tag = document.createElement('tr');
+    let new_td_tag = document.createElement('td');
+    new_td_tag.className = 'roommateName';
+
+    new_td_tag.appendChild(document.createTextNode(roommate.name));
+    new_tr_tag.appendChild(new_td_tag);
+
+    for (let index = 0; index < 7; index++) {
+      let new_empty_tr_tag = document.createElement('td');
+
+      new_tr_tag.append(new_empty_tr_tag);
+    
+    }
+    console.log(new_tr_tag);
+
+    table.appendChild(new_tr_tag);
   });
 }

@@ -73,18 +73,29 @@ table {
   display: none;
 }
 
+.roommates-title-column {
+  padding: 2rem;
+}
+
 i {
   vertical-align: middle;
   font-size: 2em;
 }
 
-td {
+.roommateName {
+  text-align: center;
+}
+
+.roommateName ~ td {
   text-align: center;
   vertical-align: middle;
   border-left: 1px solid;
+  border-top: 1px solid;
+  border-bottom: 1px solid;
   position: relative;
   height: 32px;
   cursor: pointer;
+  height: 6rem;
 }
 
 tr span {
