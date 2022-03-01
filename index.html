@@ -5,7 +5,7 @@
     <title>Chore Schedule</title>
     <link rel="stylesheet" href="CSS/style.css">
 </head>
-<body>
+<body onLoad="getCurrentWeek()">
 <div id="mainContent">
     <div id="houseRules">
         <h2>House Rules</h2>
@@ -81,41 +81,44 @@
             <thead>
             <tr>
                 <th>
+                  <p id="currentMonth"></p>
+                  <div class="arrow-right" onClick="nextWeek()"></div>
+                  <div class="arrow-left" onClick="lastWeek()"></div>
                   <br>
                   <span class="roommates-title-column">Roommates</span>
                 </th>
                 <th>
-                  <span class="day">1</span>
+                  <span class="day" id="sunday">1</span>
                   <span class="long">Sunday</span>
                   <span class="short">Sun</span>
                 </th>
                 <th>
-                  <span class="day">2</span>
+                  <span class="day" id="monday">2</span>
                   <span class="long">Monday</span>
                   <span class="short">Mon</span>
                 </th>
                 <th>
-                  <span class="day">3</span>
+                  <span class="day" id="tuesday">3</span>
                   <span class="long">Tuesday</span>
                   <span class="short">Tue</span>
                 </th>
                 <th>
-                  <span class="day">4</span>
+                  <span class="day" id="wednesday">4</span>
                   <span class="long">Wednesday</span>
                   <span class="short">Wed</span>
                 </th>
                 <th>
-                  <span class="day active">5</span>
+                  <span class="day active" id="thursday">5</span>
                   <span class="long">Thursday</span>
                   <span class="short">Thur</span>
                 </th>
                 <th>
-                  <span class="day">6</span>
+                  <span class="day" id="friday">6</span>
                   <span class="long">Friday</span>
                   <span class="short">Fri</span>
                 </th>
                 <th>
-                  <span class="day">7</span>
+                  <span class="day" id="saturday">7</span>
                   <span class="long">Saturday</span>
                   <span class="short">Sat</span>
                 </th>
@@ -137,6 +140,7 @@
     </div>
 </div>
 <script src="JS/add_edit_roomate.js"></script>
+<script src="JS/change_week.js"></script>
 </body>
 
 </html>

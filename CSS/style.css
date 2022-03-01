@@ -102,6 +102,24 @@ tr span {
   display: block;
 }
 
+.arrow-right {
+  width: 0; 
+  height: 0; 
+  border-top: 40px solid transparent;
+  border-bottom: 40px solid transparent;
+  
+  border-left: 40px solid rgb(111, 0, 255);
+}
+
+.arrow-left {
+  width: 0; 
+  height: 0; 
+  border-top: 40px solid transparent;
+  border-bottom: 40px solid transparent; 
+  
+  border-right: 40px solid rgb(0, 255, 149); 
+}
+
 /* Modal style to ADD, EDIT and DELTE roommates */
 .modal {
   display: none;
