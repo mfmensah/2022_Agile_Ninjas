@@ -44,10 +44,10 @@ div#roommatesControls > input {
 
 div#roommatesControls > input:hover {
   width: 4.1rem;
-  background-color:rgb(219, 215, 215);
+  background-color: rgb(219, 215, 215);
 }
 
-/*Calender*/
+/* Calender */
 
 table {
   font-family: sans-serif;
@@ -93,7 +93,6 @@ i {
   border-top: 1px solid;
   border-bottom: 1px solid;
   position: relative;
-  height: 32px;
   cursor: pointer;
   height: 6rem;
 }
@@ -103,21 +102,19 @@ tr span {
 }
 
 .arrow-right {
-  width: 0; 
-  height: 0; 
+  width: 0;
+  height: 0;
   border-top: 40px solid transparent;
   border-bottom: 40px solid transparent;
-  
   border-left: 40px solid rgb(111, 0, 255);
 }
 
 .arrow-left {
-  width: 0; 
-  height: 0; 
+  width: 0;
+  height: 0;
   border-top: 40px solid transparent;
-  border-bottom: 40px solid transparent; 
-  
-  border-right: 40px solid rgb(0, 255, 149); 
+  border-bottom: 40px solid transparent;
+  border-right: 40px solid rgb(0, 255, 149);
 }
 
 /* Modal style to ADD, EDIT and DELTE roommates */
@@ -135,7 +132,6 @@ tr span {
 }
 .modal-content {
   margin: 50px auto;
-  /* border: 1px solid #999; */
   width: 60%;
 }
 .modals h2,
