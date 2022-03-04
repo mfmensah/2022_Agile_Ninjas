@@ -50,6 +50,7 @@ function AddOrUpdateRoomateToRows() {
     let new_tr_tag = document.createElement('tr');
     let new_td_tag = document.createElement('td');
     new_td_tag.className = 'roommateName';
+    new_tr_tag.id = roommate.name;
 
     new_td_tag.appendChild(document.createTextNode(roommate.name));
     new_tr_tag.appendChild(new_td_tag);
