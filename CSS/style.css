@@ -199,6 +199,6 @@ button.button:hover {
   color: #a99567;
 }
 
-.chore-imput::content {
+.chore-imput {
   text-align: start;
 }
