@@ -198,3 +198,7 @@ button.button:hover {
   border-bottom: #a99567 1px solid;
   color: #a99567;
 }
+
+.chore-imput::content {
+  text-align: start;
+}

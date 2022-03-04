@@ -43,7 +43,6 @@ function GetSelectedRoommateFromList(parameter) {
 // Updates the table with number of roommates entered by the user.
 function AddOrUpdateRoomateToRows() {
   let table = document.querySelector('.tableBody');
-  
   table.innerHTML = "";
   
   roommates.forEach(roommate => {
@@ -57,9 +56,17 @@ function AddOrUpdateRoomateToRows() {
 
     // Adds the empty tds tags to the row
     for (let index = 0; index < 7; index++) {
-      let new_empty_tr_tag = document.createElement('td');
+      let new_empty_td_tag = document.createElement('td');
+      new_empty_td_tag.setAttribute("class", "addUpdateChore");
+      
+      for (let index = 0; index < 5; index++) {
+        let innerTdEditableDiv = document.createElement('div');
+        innerTdEditableDiv.className = "chore-imput"
+        innerTdEditableDiv.setAttribute("contenteditable", "true");
+        new_empty_td_tag.append(innerTdEditableDiv);
+      }
 
-      new_tr_tag.append(new_empty_tr_tag);
+      new_tr_tag.append(new_empty_td_tag);
     
     }
 
