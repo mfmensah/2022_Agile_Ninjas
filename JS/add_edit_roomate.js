@@ -29,11 +29,11 @@ function sendInvitationEmail(email, name) {
 }
 
 // Gets the current selected roommate name and return either the name or the index in the select tag box
-function GetSelectedRoommateFromList(parameter) {
+function getSelectedRoommateFromList(parameter) {
 
   switch (parameter) {
     case "name":
-      return document.getElementById('roommatesList').options[GetSelectedRoommateFromList()].value;
+      return document.getElementById('roommatesList').options[getSelectedRoommateFromList()].value;
 
     default:
       return document.getElementById('roommatesList').selectedIndex;
@@ -130,7 +130,7 @@ function AddNewRoommate() {
 
 function EditSelectedRoommate() {
   roommates.forEach(roommate => {
-    if (roommate.name === GetSelectedRoommateFromList("name")) {
+    if (roommate.name === getSelectedRoommateFromList("name")) {
       roommate.name = document.querySelector("#editRoommate input[name='name']").value;
       roommate.email = document.querySelector("#editRoommate input[name='email']").value;
       roommate.phone = document.querySelector("#editRoommate input[name='phone']").value;
@@ -143,7 +143,7 @@ function EditSelectedRoommate() {
 function DisplaySelectedRoommateInfo() {
   
   roommates.forEach(roommate => {
-    if (roommate.name === GetSelectedRoommateFromList("name")) {
+    if (roommate.name === getSelectedRoommateFromList("name")) {
       document.querySelector("#editRoommate input[name='name']").value = roommate.name;
       document.querySelector("#editRoommate input[name='email']").value = roommate.email;
       document.querySelector("#editRoommate input[name='phone']").value = roommate.phone;
@@ -153,7 +153,7 @@ function DisplaySelectedRoommateInfo() {
 
 function DeleteSelectedRoommate() {
   roommates.forEach((roommate, index) => {
-    if (roommate.name === GetSelectedRoommateFromList("name")) {
+    if (roommate.name === getSelectedRoommateFromList("name")) {
       delete roommates[index];
     }
   });
@@ -168,7 +168,7 @@ let modalBtns = [...document.querySelectorAll(".button")];
 
 modalBtns.forEach(function (btn) {
   btn.onclick = function () {
-    let roommateSelected = GetSelectedRoommateFromList();
+    let roommateSelected = getSelectedRoommateFromList();
     let modal = btn.getAttribute("data-modal");
     
     if ( (modal === "deleteRoommate" || modal === "editRoommate") && roommateSelected <= "-1") {
@@ -179,7 +179,7 @@ modalBtns.forEach(function (btn) {
       document.getElementById(modal).style.display = "block";
 
     } else if(modal === "deleteRoommate") {
-      let roommateToDelete = GetSelectedRoommateFromList("name");
+      let roommateToDelete = getSelectedRoommateFromList("name");
       document.querySelector("span#roommateMarketForDelete").innerText = roommateToDelete;
       
       document.getElementById(modal).style.display = "block";
@@ -196,3 +196,15 @@ closeBtns.forEach(function (btn) {
     modal.style.display = "none";
   };
 });
+
+// Highlight roommate when the name is clicked on from the roommates list
+function highlightRoommate() {
+
+  roommates.forEach(roommate => {
+    document.getElementById(roommate.name).style.backgroundColor = "#696969";
+  })
+
+  roommate = document.getElementById("roommatesList").value;
+  document.getElementById(roommate).style.backgroundColor = "white";
+
+}

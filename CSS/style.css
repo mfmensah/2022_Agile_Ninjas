@@ -1,8 +1,8 @@
 html {
-  background-color: dimgrey;
+  background-color: #696969;
 }
 
-div#houseRules {
+div #houseRules {
   width: 300px;
   border: 15px solid green;
   padding: 50px;
@@ -106,7 +106,7 @@ tr span {
   height: 0;
   border-top: 40px solid transparent;
   border-bottom: 40px solid transparent;
-  border-left: 40px solid rgb(111, 0, 255);
+  border-left: 40px solid rgb(0, 68, 255);
 }
 
 .arrow-left {
@@ -114,7 +114,7 @@ tr span {
   height: 0;
   border-top: 40px solid transparent;
   border-bottom: 40px solid transparent;
-  border-right: 40px solid rgb(0, 255, 149);
+  border-right: 40px solid rgb(255, 51, 0);
 }
 
 /* Modal style to ADD, EDIT and DELTE roommates */
