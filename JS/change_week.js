@@ -20,6 +20,9 @@ function getCurrentWeek() {
     document.getElementById(day).innerHTML = nextWeek.getDate();
     
   });
+
+  // Highlight today on calendar
+  document.getElementById(dayOfWeek[today.getDay()]).style.backgroundColor = "white";
 }
 
 function changeWeek(dd) {
