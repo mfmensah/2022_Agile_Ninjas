@@ -16,7 +16,7 @@ function getCurrentWeek() {
 
   dayOfWeek.forEach(day => {
 
-    var nextWeek = new Date(today.getFullYear(), today.getMonth(), today.getDate() + dayOfWeek.indexOf(day));
+    var nextWeek = new Date(today.getFullYear(), today.getMonth(), today.getDate() + dayOfWeek.indexOf(day) - 1);
     document.getElementById(day).innerHTML = nextWeek.getDate();
     
   });
@@ -34,7 +34,7 @@ function changeWeek(dd) {
   dayOfWeek.forEach(day => {
     
     // Change the weekly calendar
-    var nextWeek = new Date(today.getFullYear(), today.getMonth(), today.getDate() + dd + dayOfWeek.indexOf(day));
+    var nextWeek = new Date(today.getFullYear(), today.getMonth(), today.getDate() + dd + dayOfWeek.indexOf(day) - 1);
     document.getElementById(day).innerHTML = nextWeek.getDate();
 
     // Update the Month displayed
@@ -47,9 +47,6 @@ function changeWeek(dd) {
       document.getElementById(day).style.backgroundColor = "transparent";
     } 
   });
-
-
-
 }
 
 // previous week
