@@ -7,10 +7,31 @@
     <script src="https://smtpjs.com/v3/smtp.js"></script>
 </head>
 <body onLoad="getCurrentWeek()">
+<header>
+    <div id="loginBanner">
+        <button type="button" class="loginButton" onclick="openForm()">Login</button>
+    </div>
+</header>
 <div id="mainContent">
     <div id="houseRules">
         <h2>House Rules</h2>
     <p>Do not forget to accomplish your chores.</p>
+    </div>
+
+    <div class="form-popup" id="myForm">
+        <!-- <form action="/action_page.php" class="form-container"> -->
+        <form class="form-container">
+            <h1 class="form-popupLogin">Login</h1>
+
+            <label><b>Email:</b></label>
+            <input type="text" placeholder="Enter Email" name="email" required id="userEmail"><br>
+
+            <label><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="psw" required id="userPassword">
+
+            <button type="button" class="btn" onclick="validateUser()">Login</button>
+            <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+        </form>
     </div>
 
     <div id="addUpdateChore" class="modal">
@@ -162,6 +183,8 @@
 <script src="JS/add_edit_roomate.js"></script>
 <script src="JS/add_edit_chores.js"></script>
 <script src="JS/change_week.js"></script>
+<script src="JS/login_form.js"></script>
+<script src="JS/validate_user.js"></script>
 </body>
 
 </html>
