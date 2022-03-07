@@ -90,15 +90,19 @@
       </div>        
     </div> <!-- End of Add, edit and delete roommate selectors and modals -->
 
+    <div id="monthYear">
+      <div id="arrow-left" onClick="lastWeek()"></div>
+      <p id="currentMonth"></p>
+      <div id="arrow-right" onClick="nextWeek()"></div> 
+    </div>
+    
     <div id="weekCalender">
+
         <meta name="viewport" content="width=device-width, initial-scale=.2">
         <table>
             <thead>
             <tr>
                 <th>
-                  <p id="currentMonth"></p>
-                  <div class="arrow-right" onClick="nextWeek()"></div>
-                  <div class="arrow-left" onClick="lastWeek()"></div>
                   <br>
                   <span class="roommates-title-column">Roommates</span>
                 </th>

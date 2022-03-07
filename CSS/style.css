@@ -2,7 +2,7 @@ html {
   background-color: #696969;
 }
 
-div #houseRules {
+div#houseRules {
   width: 300px;
   border: 15px solid green;
   padding: 50px;
@@ -101,20 +101,35 @@ tr span {
   display: block;
 }
 
-.arrow-right {
-  width: 0;
-  height: 0;
-  border-top: 40px solid transparent;
-  border-bottom: 40px solid transparent;
-  border-left: 40px solid rgb(0, 68, 255);
+#monthYear {
+  display: grid;
+  grid-template-areas: 
+  "leftarrow month rightarrow";
 }
 
-.arrow-left {
+#arrow-right {
   width: 0;
   height: 0;
+  position: relative;
   border-top: 40px solid transparent;
   border-bottom: 40px solid transparent;
-  border-right: 40px solid rgb(255, 51, 0);
+  border-left: 40px solid rgb(0, 0, 0);
+  grid-area: rightarrow;
+}
+
+#arrow-left {
+  width: 0;
+  height: 0;
+  position: relative;
+  border-top: 40px solid transparent;
+  border-bottom: 40px solid transparent;
+  border-right: 40px solid rgb(0, 0, 0);
+  grid-area: leftarrow;
+}
+
+#currentMonth {
+  grid-area: month;
+  font-size: 1.35rem;
 }
 
 /* Modal style to ADD, EDIT and DELTE roommates */
