@@ -49,6 +49,7 @@ function changeWeek(dd) {
   });
 }
 
+
 // previous week
 function lastWeek() {
   dd -= 7;
