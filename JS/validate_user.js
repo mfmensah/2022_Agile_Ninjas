@@ -11,7 +11,7 @@ function validateUser() {
         document.getElementById("roommatesControls").style.display = "inline";
         closeForm();
     } else {
-        alert("The credentials entered are not an adminstrator.")
+        alert("The credentials entered are not an administrator.")
     }
 
 }
