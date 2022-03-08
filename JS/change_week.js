@@ -1,6 +1,4 @@
 let today = new Date();
-var yyyy = today.getFullYear();
-let dateNumber = [];
 let dd = 0;
 const month = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 const dayOfWeek = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"];
