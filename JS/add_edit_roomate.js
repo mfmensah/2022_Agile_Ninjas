@@ -61,16 +61,21 @@ function AddOrUpdateRoomateToRows() {
 
             for (let index = 0; index < 5; index++) {
                 let innerTdEditableDiv = document.createElement('div');
-                innerTdEditableDiv.className = "chore-imput"
-                innerTdEditableDiv.setAttribute("contenteditable", "true");
                 new_empty_td_tag.append(innerTdEditableDiv);
+                
+                let innerTdEditableP = document.createElement('p');
+                innerTdEditableP.className = "chore-input";
+                innerTdEditableP.setAttribute("contenteditable", "true");
+
+                innerTdEditableDiv.append(innerTdEditableP);
 
                 let checkBox = document.createElement("INPUT");
                 checkBox.onchange = handleCompleteCheck(indexTD, index);
                 checkBox.type = "checkbox";
                 checkBox.checked = false;
                 checkBox.setAttribute("id", indexTD + index);
-                new_empty_td_tag.append(checkBox);
+                checkBox.className = "input-checkbox"
+                innerTdEditableDiv.append(checkBox);
             }
 
             new_tr_tag.append(new_empty_td_tag);
