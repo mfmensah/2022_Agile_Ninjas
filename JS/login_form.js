@@ -7,4 +7,9 @@ function closeForm() {
 
 }
 
+function logoutUser(){
+    document.getElementById("roommatesControls").style.display = "none";
+    document.getElementsByClassName("addUpdateChore").disabled = true;
+}
+
 

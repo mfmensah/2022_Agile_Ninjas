@@ -232,6 +232,11 @@ button.button:hover {
   height: 2em;
   float: right;
 }
+.logoutButton {
+  width: 5em;
+  height: 2em;
+  float: right;
+}
 
 /* Login Pop-up */
 {box-sizing: border-box;}
