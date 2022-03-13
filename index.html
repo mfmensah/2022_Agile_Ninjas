@@ -9,10 +9,13 @@
 <body onLoad="getCurrentWeek()">
 <header>
     <div id="loginBanner">
-        <button type="button" class="logoutButton" onclick="logoutUser()">Logout</button>
-
+        <div id="loginButton">
         <button type="button" class="loginButton" onclick="openForm()">Login</button>
+        </div>
 
+    <div id="logoutButton">
+        <button type="button" class="logoutButton" onclick="logoutUser()">Logout</button>
+    </div>
     </div>
 </header>
 <div id="mainContent">
@@ -184,7 +187,7 @@
     </div>
 </div>
 <script src="JS/add_edit_roomate.js"></script>
-<script src="JS/add_edit_chores.js"></script>
+<!--<script src="JS/add_edit_chores.js"></script>-->
 <script src="JS/change_week.js"></script>
 <script src="JS/login_form.js"></script>
 <script src="JS/validate_user.js"></script>

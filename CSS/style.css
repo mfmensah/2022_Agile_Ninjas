@@ -108,6 +108,7 @@ tr span {
   "leftarrow month rightarrow";
   position: relative;
   top: 200px;
+
 }
 
 #arrow-right {
@@ -233,17 +234,23 @@ button.button:hover {
 #loginBanner {
   background-color: #666556;
   padding: 2em;
+  display: block;
+  transition: all 2s ease-out;
 
 }
-.loginButton {
+#loginButton {
   width: 5em;
   height: 2em;
   float: right;
+
 }
-.logoutButton {
+
+#logoutButton {
   width: 5em;
   height: 2em;
   float: right;
+  display: none;
+
 }
 
 /* Login Pop-up */
