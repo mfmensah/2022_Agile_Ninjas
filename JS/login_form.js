@@ -20,7 +20,12 @@ function logoutUser(){
     document.getElementById("roommatesControls").style.display = "none";
 
     //to remove ability to change chores
-    document.getElementsByClassName("addUpdateChore").disabled = true;
+    const collection = document.getElementsByClassName("chore-input");
+    for (let i = 0; i < collection.length; i++) {
+        collection[i].setAttribute("contenteditable", "false");
+    }
+    //document.getElementsByClassName('chore-input')[0].setAttribute("contenteditable", "false");
+
 
 
 }

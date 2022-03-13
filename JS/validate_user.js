@@ -12,6 +12,9 @@ function validateUser() {
         closeForm();
     } else {
         alert("The credentials entered are not an administrator.")
+        document.getElementsByClassName('chore-input')[0].setAttribute("contenteditable", "false");
+
     }
+
 
 }
