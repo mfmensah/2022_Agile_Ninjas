@@ -24,7 +24,7 @@ function logoutUser(){
     for (let i = 0; i < collection.length; i++) {
         collection[i].setAttribute("contenteditable", "false");
     }
-    //document.getElementsByClassName('chore-input')[0].setAttribute("contenteditable", "false");
+
 
 
 
