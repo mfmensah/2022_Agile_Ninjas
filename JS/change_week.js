@@ -51,6 +51,10 @@ function changeWeek(dd) {
   });
 }
 
+function jumpToToday() {
+  getCurrentWeek();
+}
+
 
 // previous week
 function lastWeek() {

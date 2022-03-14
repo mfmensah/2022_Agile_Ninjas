@@ -19,6 +19,7 @@
     </div>
 </header>
 <div id="mainContent">
+  <div id="monthYear">
     <div id="houseRules">
         <h2>House Rules</h2>
     <p>Do not forget to accomplish your chores.</p>
@@ -117,12 +118,13 @@
       </div>        
     </div> <!-- End of Add, edit and delete roommate selectors and modals -->
 
-    <div id="monthYear">
+    <!-- <div id="monthYear"> -->
       <div id="arrow-left" onClick="lastWeek()"></div>
       <p id="currentMonth"></p>
+      <button type="button" id="jumpToTodayButton" onclick="jumpToToday()">Today</button>
       <div id="arrow-right" onClick="nextWeek()"></div> 
-    </div>
-    
+    <!-- </div> -->
+  
     <div id="weekCalender">
 
         <meta name="viewport" content="width=device-width, initial-scale=.2">
@@ -185,6 +187,7 @@
             </tbody>
         </table>
     </div>
+  </div>
 </div>
 <script src="JS/change_week.js"></script>
 <script src="JS/add_edit_roommate.js"></script>

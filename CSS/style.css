@@ -9,6 +9,7 @@ div#houseRules {
   margin: 20px;
   background-color: dimgrey;
   float: left;
+  grid-area: rules;
 }
 
 /* Add, Select, Edit and Delete Roommates */
@@ -24,6 +25,7 @@ div#roommates {
 #roommates > h2 {
   text-align: center;
   margin: 0 auto;
+  grid-area: roommates;
 }
 
 select#roommatesList {
@@ -104,10 +106,10 @@ tr span {
 #monthYear {
   display: grid;
   grid-template-areas: 
-  "leftarrow month rightarrow";
+  "rules leftArrow month rightArrow roommates"
+  "rules leftArrow todayButton rightArrow roommates"
+  "calendar calendar calendar calendar calendar";
   position: relative;
-  top: 200px;
-
 }
 
 #arrow-right {
@@ -117,7 +119,7 @@ tr span {
   border-top: 40px solid transparent;
   border-bottom: 40px solid transparent;
   border-left: 40px solid rgb(0, 0, 0);
-  grid-area: rightarrow;
+  grid-area: rightArrow;
 }
 
 #arrow-left {
@@ -127,7 +129,19 @@ tr span {
   border-top: 40px solid transparent;
   border-bottom: 40px solid transparent;
   border-right: 40px solid rgb(0, 0, 0);
-  grid-area: leftarrow;
+  grid-area: leftArrow;
+}
+
+#weekCalender {
+  grid-area: calendar;
+}
+
+#jumpToTodayButton {
+  grid-area: todayButton;
+  position: relative;
+  width: 8em;
+  height: 2em;
+  border-radius: 30px;
 }
 
 #currentMonth {
