@@ -73,6 +73,7 @@ function AddOrUpdateRoomateToRows() {
             new_empty_td_tag.setAttribute("class", "addUpdateChore " + currentWeekOfTheMonth);
             new_empty_td_tag.setAttribute("id", dayOfWeek[indexTD]);
 
+
             for (let index = 0; index < 5; index++) {
                 let innerTdEditableDiv = document.createElement('div');
 

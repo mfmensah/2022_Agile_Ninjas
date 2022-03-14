@@ -20,14 +20,20 @@ function logoutUser(){
     document.getElementById("roommatesControls").style.display = "none";
 
     //to remove ability to change chores
-    const collection = document.getElementsByClassName("chore-input");
-    for (let i = 0; i < collection.length; i++) {
-        collection[i].setAttribute("contenteditable", "false");
-    }
-
-
-
+    setReadOnlyChores();
 
 }
 
+function setReadOnlyChores() {
+    const collection = document.getElementsByClassName("chore-input");
+    for (let i = 0; i < collection.length; i++) {
+        collection[i].readOnly = true;
+    }
+}
 
+function removeReadOnlyChores() {
+    const collection = document.getElementsByClassName("chore-input");
+    for (let i = 0; i < collection.length; i++) {
+        collection[i].readOnly = false;
+    }
+}
