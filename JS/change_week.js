@@ -1,5 +1,6 @@
 let today = new Date();
 let dd = 0;
+let currentWeekOfTheMonth;
 const month = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 const dayOfWeek = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"];
 
@@ -18,6 +19,9 @@ function getCurrentWeek() {
     document.getElementById(day).innerHTML = nextWeek.getDate();
     
   });
+
+  // Gets the current week of the month starting the week from sunday. i.e.: March 13 
+  currentWeekOfTheMonth = month[today.getMonth()] + " " + today.getDate();
 
   // Highlight today on calendar
   document.getElementById(dayOfWeek[today.getDay()]).style.backgroundColor = "white";

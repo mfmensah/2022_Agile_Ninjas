@@ -40,6 +40,19 @@ function getSelectedRoommateFromList(parameter) {
     }
 }
 
+// Adds or delete new chore line when user add content or clean line
+function addOrDeleteNewChoreLine(e) {
+    let parentOfOTagChanged = e.target.parentElement;
+    let nextSibling = parentOfOTagChanged.nextSibling;
+    
+    if (e.target.value !== "") {
+        nextSibling.style.display = "block";
+    } else {
+        parentOfOTagChanged.style.display = "none";
+    }
+
+}
+
 // Updates the table with number of roommates entered by the user.
 function AddOrUpdateRoomateToRows() {
     let table = document.querySelector('.tableBody');
@@ -57,17 +70,26 @@ function AddOrUpdateRoomateToRows() {
         // Adds the empty tds tags to the row
         for (let indexTD = 0; indexTD < 7; indexTD++) {
             let new_empty_td_tag = document.createElement('td');
-            new_empty_td_tag.setAttribute("class", "addUpdateChore");
+            new_empty_td_tag.setAttribute("class", "addUpdateChore " + currentWeekOfTheMonth);
+            new_empty_td_tag.setAttribute("id", dayOfWeek[indexTD]);
 
             for (let index = 0; index < 5; index++) {
                 let innerTdEditableDiv = document.createElement('div');
-                new_empty_td_tag.append(innerTdEditableDiv);
-                
-                let innerTdEditableP = document.createElement('p');
-                innerTdEditableP.className = "chore-input";
-                innerTdEditableP.setAttribute("contenteditable", "true");
 
-                innerTdEditableDiv.append(innerTdEditableP);
+                innerTdEditableDiv.onchange = addOrDeleteNewChoreLine;
+
+                if (index === 0) {
+                    innerTdEditableDiv.style.display = "block";
+                } else {
+                    innerTdEditableDiv.style.display = "none";
+                }
+                
+                let innerTdEditableInput = document.createElement('input');
+                innerTdEditableInput.className = "chore-input";
+                innerTdEditableInput.setAttribute("contenteditable", "true");
+                // innerTdEditableInput.setAttribute("id", dayOfWeek[indexTD] + "-input" + index);
+
+                innerTdEditableDiv.append(innerTdEditableInput);
 
                 let checkBox = document.createElement("INPUT");
                 checkBox.onchange = handleCompleteCheck(indexTD, index);
@@ -76,6 +98,9 @@ function AddOrUpdateRoomateToRows() {
                 checkBox.setAttribute("id", indexTD + index);
                 checkBox.className = "input-checkbox"
                 innerTdEditableDiv.append(checkBox);
+
+                new_empty_td_tag.append(innerTdEditableDiv);
+
             }
 
             new_tr_tag.append(new_empty_td_tag);

@@ -94,7 +94,6 @@ i {
   border-top: 1px solid;
   border-bottom: 1px solid;
   position: relative;
-  cursor: pointer;
   height: 6rem;
 }
 
@@ -223,6 +222,7 @@ button.button:hover {
   width: 80%;
   display: inline-block;
   margin: 0.25rem 0px;
+  cursor: pointer;
 }
 
 .chore-checkbox {
