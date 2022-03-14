@@ -76,8 +76,6 @@ function AddOrUpdateRoomateToRows() {
             for (let index = 0; index < 5; index++) {
                 let innerTdEditableDiv = document.createElement('div');
 
-                innerTdEditableDiv.onchange = addOrDeleteNewChoreLine;
-
                 if (index === 0) {
                     innerTdEditableDiv.style.display = "block";
                 } else {
@@ -88,6 +86,8 @@ function AddOrUpdateRoomateToRows() {
                 innerTdEditableInput.className = "chore-input";
                 innerTdEditableInput.setAttribute("contenteditable", "true");
                 // innerTdEditableInput.setAttribute("id", dayOfWeek[indexTD] + "-input" + index);
+
+                innerTdEditableInput.onchange = addOrDeleteNewChoreLine;
 
                 innerTdEditableDiv.append(innerTdEditableInput);
 
