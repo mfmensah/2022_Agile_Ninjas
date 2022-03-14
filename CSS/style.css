@@ -20,12 +20,13 @@ div#roommates {
   margin: 20px;
   background-color: dimgrey;
   float: right;
+  justify-self: end;
+  grid-area: roommates;
 }
 
 #roommates > h2 {
   text-align: center;
   margin: 0 auto;
-  grid-area: roommates;
 }
 
 select#roommatesList {
@@ -95,6 +96,7 @@ i {
   border-left: 1px solid;
   border-top: 1px solid;
   border-bottom: 1px solid;
+  border-right: 1px solid;
   position: relative;
   height: 6rem;
 }
@@ -106,6 +108,7 @@ tr span {
 #monthYear {
   display: grid;
   grid-template-areas: 
+  "rules . . . roommates"
   "rules leftArrow month rightArrow roommates"
   "rules leftArrow todayButton rightArrow roommates"
   "calendar calendar calendar calendar calendar";
@@ -116,6 +119,7 @@ tr span {
   width: 0;
   height: 0;
   position: relative;
+  justify-self: end;
   border-top: 40px solid transparent;
   border-bottom: 40px solid transparent;
   border-left: 40px solid rgb(0, 0, 0);
@@ -126,6 +130,7 @@ tr span {
   width: 0;
   height: 0;
   position: relative;
+  justify-self: start;
   border-top: 40px solid transparent;
   border-bottom: 40px solid transparent;
   border-right: 40px solid rgb(0, 0, 0);
@@ -134,6 +139,8 @@ tr span {
 
 #weekCalender {
   grid-area: calendar;
+  justify-self: center;
+  padding-right: 50px;
 }
 
 #jumpToTodayButton {
@@ -142,11 +149,13 @@ tr span {
   width: 8em;
   height: 2em;
   border-radius: 30px;
+  justify-self: center;
 }
 
 #currentMonth {
   grid-area: month;
   font-size: 1.35rem;
+  justify-self: center;
 }
 
 /* Modal style to ADD, EDIT and DELTE roommates */
