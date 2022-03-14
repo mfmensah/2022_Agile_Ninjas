@@ -73,7 +73,6 @@ function AddOrUpdateRoomateToRows() {
             new_empty_td_tag.setAttribute("class", "addUpdateChore " + currentWeekOfTheMonth);
             new_empty_td_tag.setAttribute("id", dayOfWeek[indexTD]);
 
-
             for (let index = 0; index < 5; index++) {
                 let innerTdEditableDiv = document.createElement('div');
 
@@ -113,7 +112,7 @@ function AddOrUpdateRoomateToRows() {
     });
 }
 
-//handles checked events for complete checkbox
+// Handles checked events for complete checkbox
 function handleCompleteCheck(day, chore) {
     var checkbox = document.getElementById(day + chore);
     console.log(day + "_" + chore);
@@ -154,6 +153,18 @@ function CloseCurrentModal(id) {
     document.querySelector("#" + id).style.display = "none";
 }
 
+// Validate email through regular expression. Return true if it's valid and false if it's not.
+// Code source: https://www.w3resource.com/javascript/form/email-validation.php
+function ValidateEmail(mail) {
+    var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    
+    if(mail.match(mailformat)) {
+        return (true)
+    } else {
+        return (false)
+    }
+}
+
 function AddNewRoommate() {
 
     // Gets values from the form and stores in local variables
@@ -161,7 +172,7 @@ function AddNewRoommate() {
     let newRoomateEmail = document.querySelector("#addRoommate input[name='email']").value;
     let newRoomatePhone = document.querySelector("#addRoommate input[name='phone']").value;
 
-    if (newRoomateName !== "" && newRoomateEmail !== "") {
+    if (newRoomateName !== "" && newRoomateEmail !== "" && ValidateEmail(newRoomateEmail)) {
 
         AddOrEditRoommate(newRoomateName, newRoomateEmail, newRoomatePhone);
 
@@ -176,15 +187,24 @@ function AddNewRoommate() {
 }
 
 function EditSelectedRoommate() {
-    roommates.forEach(roommate => {
-        if (roommate.name === getSelectedRoommateFromList("name")) {
-            roommate.name = document.querySelector("#editRoommate input[name='name']").value;
-            roommate.email = document.querySelector("#editRoommate input[name='email']").value;
-            roommate.phone = document.querySelector("#editRoommate input[name='phone']").value;
-            UpdateRoommatesSelectList();
-        }
-    });
-    CloseCurrentModal("editRoommate");
+
+    let roomateEmail = document.querySelector("#editRoommate input[name='email']").value;
+
+    if (ValidateEmail(roomateEmail)) {
+
+        roommates.forEach(roommate => {
+            if (roommate.name === getSelectedRoommateFromList("name")) {
+                roommate.name = document.querySelector("#editRoommate input[name='name']").value;
+                roommate.email = document.querySelector("#editRoommate input[name='email']").value;
+                roommate.phone = document.querySelector("#editRoommate input[name='phone']").value;
+                UpdateRoommatesSelectList();
+            }
+        });
+        CloseCurrentModal("editRoommate");
+
+    } else {
+        alert("Please, enter valid email address to add to update roommate info.");
+    }
 }
 
 function DisplaySelectedRoommateInfo() {
