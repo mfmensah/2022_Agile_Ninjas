@@ -6,15 +6,17 @@ function closeForm() {
     document.getElementById("myForm").style.display = "none";
     document.getElementById('loginButton').style.display = 'none';
     document.getElementById('logoutButton').style.display = 'inline';
-
-
-
+    document.getElementById("rules").disabled = false;
+    document.getElementById("changeRule").style.visibility = 'visible';
 }
 
 
 function logoutUser(){
     document.getElementById('loginButton').style.display = 'inline';
     document.getElementById('logoutButton').style.display = 'none';
+
+    document.getElementById("rules").disabled = true;
+    document.getElementById("changeRule").style.visibility = 'hidden';
 
     //to change access to roommate
     document.getElementById("roommatesControls").style.display = "none";
