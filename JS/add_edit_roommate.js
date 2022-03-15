@@ -58,24 +58,11 @@ function AddOrUpdateRoomateToRows(origin) {
     let table = document.querySelector('.tableBody');
     
     if (origin === "FromEditSelectedRoommate") {
-        // alert("From update Origin");
+        
         let roommatesNamesOnTable = document.querySelectorAll('.roommateName');
-        let loopCount = 0;
-        // console.log(table);
 
         roommates.forEach(roommate => {
             roommatesNamesOnTable[roommates.indexOf(roommate)].innerText = roommate.name;
-            // console.log(roommates.indexOf(roommate));
-            // loopCount++;
-            // document.querySelector('#' + roommate.name + ' .roommateName').innerText
-        
-            // roommatesNamesOnTable.forEach(roommateNameTdTag => {
-            //     if (roommateNameTdTag.innerText !== roommate.name) {
-            //         // roommateNameTdTag.innerText = roommate.name;
-            //         // roommateNameTdTag.innerText = roommate.name;
-            //     }
-            //     // console.log(roommateNameTdTag.innerText);
-            // });
         });
         
     } else {
@@ -108,7 +95,6 @@ function AddOrUpdateRoomateToRows(origin) {
                     let innerTdEditableInput = document.createElement('input');
                     innerTdEditableInput.className = "chore-input";
                     innerTdEditableInput.setAttribute("contenteditable", "true");
-                    // innerTdEditableInput.setAttribute("id", dayOfWeek[indexTD] + "-input" + index);
 
                     innerTdEditableInput.onchange = addOrDeleteNewChoreLine;
 
@@ -139,7 +125,6 @@ function AddOrUpdateRoomateToRows(origin) {
 // Handles checked events for complete checkbox
 function handleCompleteCheck(day, chore) {
     var checkbox = document.getElementById(day + chore);
-    // console.log(day + "_" + chore);
     if (checkbox !== null && checkbox.checked) {
         alert(day + " " + chore + " complete");
     }

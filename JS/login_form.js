@@ -32,7 +32,7 @@ function setReadOnlyChores() {
         collection[i].readOnly = true;
     }
     
-    UpdateCheckBoxState("none");
+    UpdateCheckBoxVisibilityState("none");
 
 }
 
@@ -42,11 +42,11 @@ function removeReadOnlyChores() {
         collection[i].readOnly = false;
     }
 
-    UpdateCheckBoxState("inline-block");
+    UpdateCheckBoxVisibilityState("inline-block");
 }
 
 // Update the display style status of all the chore checkbox on the page based on the login status. It receives the parameter for the attribute display, setting it to none or inline-block.  
-function UpdateCheckBoxState(displayAttributeValue) {
+function UpdateCheckBoxVisibilityState(displayAttributeValue) {
 
     let allCompleteChoreCheckBox = document.querySelectorAll(".input-checkbox");
     if (allCompleteChoreCheckBox.length !== 0) {
