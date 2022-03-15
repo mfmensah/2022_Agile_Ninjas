@@ -13,17 +13,17 @@
                 <button type="button" class="loginButton" onclick="openForm()">Login</button>
             </div>
 
-            <div id="logoutButton">
-                <button type="button" class="logoutButton" onclick="logoutUser()">Logout</button>
-            </div>
-        </div>
-    </header>
-    <div id="mainContent">
-        <div id="houseRules">
-            <h2>House Rules</h2>
-            <textarea disabled id="rules" cols="30" rows="5"></textarea>
-            <input id="changeRule" type="submit" value="Modify" onclick="SetRules()" />
-        </div>
+    <div id="logoutButton">
+        <button type="button" class="logoutButton" onclick="logoutUser()">Logout</button>
+    </div>
+    </div>
+</header>
+<div id="mainContent">
+  <div id="monthYear">
+    <div id="houseRules">
+        <h2>House Rules</h2>
+    <p>Do not forget to accomplish your chores.</p>
+    </div>
 
         <div class="form-popup" id="myForm">
             <!-- <form action="/action_page.php" class="form-container"> -->
@@ -60,8 +60,8 @@
         <div id="roommates">
             <h2>Roommates</h2>
 
-            <select name="roommatesList" id="roommatesList" onChange="highlightRoommate()" multiple>
-            </select>
+      <select name="roommatesList" id="roommatesList" onChange="highlightRoommate()" multiple>
+      </select>
 
             <div class="modals">
                 <div id="roommatesControls">
@@ -118,82 +118,80 @@
             </div>
         </div> <!-- End of Add, edit and delete roommate selectors and modals -->
 
-        <div id="monthYear">
-            <div id="arrow-left" onClick="lastWeek()"></div>
-            <p id="currentMonth"></p>
-            <div id="arrow-right" onClick="nextWeek()"></div>
-        </div>
-
-        <div id="weekCalender">
-
-            <meta name="viewport" content="width=device-width, initial-scale=.2">
-            <table>
-                <thead>
-                    <tr>
-                        <th>
-                            <br>
-                            <span class="roommates-title-column">Roommates</span>
-                        </th>
-                        <th>
-                            <span class="day" id="sunday">1</span>
-                            <span class="long">Sunday</span>
-                            <span class="short">Sun</span>
-                        </th>
-                        <th>
-                            <span class="day" id="monday">2</span>
-                            <span class="long">Monday</span>
-                            <span class="short">Mon</span>
-                        </th>
-                        <th>
-                            <span class="day" id="tuesday">3</span>
-                            <span class="long">Tuesday</span>
-                            <span class="short">Tue</span>
-                        </th>
-                        <th>
-                            <span class="day" id="wednesday">4</span>
-                            <span class="long">Wednesday</span>
-                            <span class="short">Wed</span>
-                        </th>
-                        <th>
-                            <span class="day active" id="thursday">5</span>
-                            <span class="long">Thursday</span>
-                            <span class="short">Thur</span>
-                        </th>
-                        <th>
-                            <span class="day" id="friday">6</span>
-                            <span class="long">Friday</span>
-                            <span class="short">Fri</span>
-                        </th>
-                        <th>
-                            <span class="day" id="saturday">7</span>
-                            <span class="long">Saturday</span>
-                            <span class="short">Sat</span>
-                        </th>
-                    </tr>
-                </thead>
-                <tbody class="tableBody">
-                    <tr>
-                        <td class="roommateName"></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <!-- https://stackoverflow.com/questions/1391278/contenteditable-change-events to help handling changing td content and save in the server side -->
-                </tbody>
-            </table>
-        </div>
+    <div id="monthYear">
+      <div id="arrow-left" onClick="lastWeek()"></div>
+      <p id="currentMonth"></p>
+      <div id="arrow-right" onClick="nextWeek()"></div> 
     </div>
-    <script src="JS/add_edit_roomate.js"></script>
-    <!--<script src="JS/add_edit_chores.js"></script>-->
-    <script src="JS/change_week.js"></script>
-    <script src="JS/login_form.js"></script>
-    <script src="JS/validate_user.js"></script>
-    <script src="JS/api_helper.js"></script>
-    <script src="JS/roommate_rules.js"></script>
+    
+    <div id="weekCalender">
+
+        <meta name="viewport" content="width=device-width, initial-scale=.2">
+        <table>
+            <thead>
+            <tr>
+                <th>
+                  <br>
+                  <span class="roommates-title-column">Roommates</span>
+                </th>
+                <th>
+                  <span class="day" id="sunday">1</span>
+                  <span class="long">Sunday</span>
+                  <span class="short">Sun</span>
+                </th>
+                <th>
+                  <span class="day" id="monday">2</span>
+                  <span class="long">Monday</span>
+                  <span class="short">Mon</span>
+                </th>
+                <th>
+                  <span class="day" id="tuesday">3</span>
+                  <span class="long">Tuesday</span>
+                  <span class="short">Tue</span>
+                </th>
+                <th>
+                  <span class="day" id="wednesday">4</span>
+                  <span class="long">Wednesday</span>
+                  <span class="short">Wed</span>
+                </th>
+                <th>
+                  <span class="day active" id="thursday">5</span>
+                  <span class="long">Thursday</span>
+                  <span class="short">Thur</span>
+                </th>
+                <th>
+                  <span class="day" id="friday">6</span>
+                  <span class="long">Friday</span>
+                  <span class="short">Fri</span>
+                </th>
+                <th>
+                  <span class="day" id="saturday">7</span>
+                  <span class="long">Saturday</span>
+                  <span class="short">Sat</span>
+                </th>
+            </tr>
+            </thead>
+            <tbody class="tableBody">
+              <tr>
+                <td class="roommateName"></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <!-- https://stackoverflow.com/questions/1391278/contenteditable-change-events to help handling changing td content and save in the server side -->
+            </tbody>
+        </table>
+    </div>
+</div>
+<script src="JS/add_edit_roomate.js"></script>
+<!--<script src="JS/add_edit_chores.js"></script>-->
+<script src="JS/change_week.js"></script>
+<script src="JS/login_form.js"></script>
+<script src="JS/validate_user.js"></script>
 </body>
 
 </html>

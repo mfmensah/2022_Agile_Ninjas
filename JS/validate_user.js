@@ -9,12 +9,12 @@ function validateUser() {
 
     if (userEmail === adminEmail && userPassword === adminPassword){
         document.getElementById("roommatesControls").style.display = "inline";
+        removeReadOnlyChores();
         closeForm();
     } else {
         alert("The credentials entered are not an administrator.")
-        document.getElementsByClassName('chore-input')[0].setAttribute("contenteditable", "false");
-
-    }
-
+        setReadOnlyChores();
+        }
 
 }
+

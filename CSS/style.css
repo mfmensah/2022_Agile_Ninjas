@@ -9,6 +9,7 @@ div#houseRules {
   margin: 20px;
   background-color: dimgrey;
   float: left;
+  grid-area: rules;
 }
 
 /* Add, Select, Edit and Delete Roommates */
@@ -19,6 +20,8 @@ div#roommates {
   margin: 20px;
   background-color: dimgrey;
   float: right;
+  justify-self: end;
+  grid-area: roommates;
 }
 
 #roommates > h2 {
@@ -93,8 +96,8 @@ i {
   border-left: 1px solid;
   border-top: 1px solid;
   border-bottom: 1px solid;
+  border-right: 1px solid;
   position: relative;
-  cursor: pointer;
   height: 6rem;
 }
 
@@ -105,35 +108,54 @@ tr span {
 #monthYear {
   display: grid;
   grid-template-areas: 
-  "leftarrow month rightarrow";
+  "rules . . . roommates"
+  "rules leftArrow month rightArrow roommates"
+  "rules leftArrow todayButton rightArrow roommates"
+  "calendar calendar calendar calendar calendar";
   position: relative;
-  top: 200px;
-
 }
 
 #arrow-right {
   width: 0;
   height: 0;
   position: relative;
+  justify-self: end;
   border-top: 40px solid transparent;
   border-bottom: 40px solid transparent;
   border-left: 40px solid rgb(0, 0, 0);
-  grid-area: rightarrow;
+  grid-area: rightArrow;
 }
 
 #arrow-left {
   width: 0;
   height: 0;
   position: relative;
+  justify-self: start;
   border-top: 40px solid transparent;
   border-bottom: 40px solid transparent;
   border-right: 40px solid rgb(0, 0, 0);
-  grid-area: leftarrow;
+  grid-area: leftArrow;
+}
+
+#weekCalender {
+  grid-area: calendar;
+  justify-self: center;
+  padding-right: 50px;
+}
+
+#jumpToTodayButton {
+  grid-area: todayButton;
+  position: relative;
+  width: 8em;
+  height: 2em;
+  border-radius: 30px;
+  justify-self: center;
 }
 
 #currentMonth {
   grid-area: month;
   font-size: 1.35rem;
+  justify-self: center;
 }
 
 /* Modal style to ADD, EDIT and DELTE roommates */
@@ -223,6 +245,7 @@ button.button:hover {
   width: 80%;
   display: inline-block;
   margin: 0.25rem 0px;
+  cursor: pointer;
 }
 
 .chore-checkbox {
