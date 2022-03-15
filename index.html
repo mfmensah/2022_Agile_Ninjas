@@ -119,11 +119,12 @@
                 </div>
             </div> <!-- End of Add, edit and delete roommate selectors and modals -->
 
-            <div id="monthYear">
-                <div id="arrow-left" onClick="lastWeek()"></div>
-                <p id="currentMonth"></p>
-                <div id="arrow-right" onClick="nextWeek()"></div>
-            </div>
+            <!-- <div id="monthYear"> -->
+            <div id="arrow-left" onClick="lastWeek()"></div>
+            <p id="currentMonth"></p>
+            <button type="button" id="jumpToTodayButton" onclick="jumpToToday()">Today</button>
+            <div id="arrow-right" onClick="nextWeek()"></div>
+            <!-- </div> -->
 
             <div id="weekCalender">
 
@@ -188,7 +189,7 @@
                 </table>
             </div>
         </div>
-        <script src="JS/add_edit_roomate.js"></script>
+        <script src="JS/add_edit_roommate.js"></script>
         <!--<script src="JS/add_edit_chores.js"></script>-->
         <script src="JS/change_week.js"></script>
         <script src="JS/login_form.js"></script>
