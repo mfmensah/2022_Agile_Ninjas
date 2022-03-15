@@ -6,6 +6,9 @@ function closeForm() {
     document.getElementById("myForm").style.display = "none";
     document.getElementById('loginButton').style.display = 'none';
     document.getElementById('logoutButton').style.display = 'inline';
+
+
+
 }
 
 
@@ -26,29 +29,11 @@ function setReadOnlyChores() {
     for (let i = 0; i < collection.length; i++) {
         collection[i].readOnly = true;
     }
-    
-    UpdateCheckBoxState("none");
-
 }
 
 function removeReadOnlyChores() {
     const collection = document.getElementsByClassName("chore-input");
     for (let i = 0; i < collection.length; i++) {
         collection[i].readOnly = false;
-    }
-
-    UpdateCheckBoxState("inline-block");
-}
-
-// Update the display style status of all the chore checkbox on the page based on the login status. It receives the parameter for the attribute display, setting it to none or inline-block.  
-function UpdateCheckBoxState(displayAttributeValue) {
-
-    let allCompleteChoreCheckBox = document.querySelectorAll(".input-checkbox");
-    if (allCompleteChoreCheckBox.length !== 0) {
-
-        allCompleteChoreCheckBox.forEach(choreCheckbox => {
-            
-            choreCheckbox.style.display = displayAttributeValue;
-        });
     }
 }
