@@ -7,190 +7,193 @@
     <script src="https://smtpjs.com/v3/smtp.js"></script>
 </head>
 <body onLoad="getCurrentWeek()">
-<header>
-    <div id="loginBanner">
-        <div id="loginButton">
-        <button type="button" class="loginButton" onclick="openForm()">Login</button>
-        </div>
-
-    <div id="logoutButton">
-        <button type="button" class="logoutButton" onclick="logoutUser()">Logout</button>
-    </div>
-    </div>
-</header>
-<div id="mainContent">
-    <div id="houseRules">
-        <h2>House Rules</h2>
-    <p>Do not forget to accomplish your chores.</p>
-    </div>
-
-    <div class="form-popup" id="myForm">
-        <!-- <form action="/action_page.php" class="form-container"> -->
-        <form class="form-container">
-            <h1 class="form-popupLogin">Login</h1>
-
-            <label><b>Email:</b></label>
-            <input type="text" placeholder="Enter Email" name="email" required id="userEmail"><br>
-
-            <label><b>Password</b></label>
-            <input type="password" placeholder="Enter Password" name="psw" required id="userPassword">
-
-            <button type="button" class="btn" onclick="validateUser()">Login</button>
-            <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
-        </form>
-    </div>
-
-    <div id="addUpdateChore" class="modal">
-      <div class="modal-content">
-        <div class="contact-form">
-          <a class="close">&times;</a>
-          <div class="openedModal">
-            <h2>Add New Roommate</h2>
-            <div>
-              <input class="choreModal" type="text" name="choreMoral" placeholder="Insert Chore" />
+    <header>
+        <div id="loginBanner">
+            <div id="loginButton">
+                <button type="button" class="loginButton" onclick="openForm()">Login</button>
             </div>
-            <button type="submit" onclick="AddUpdateChore()">Add</button>
-          </div>
+
+            <div id="logoutButton">
+                <button type="button" class="logoutButton" onclick="logoutUser()">Logout</button>
+            </div>
         </div>
-      </div>
-    </div>
-
-    <!-- Add, Select, Edit and Delete roommates selectors and modals -->
-    <div id="roommates">
-      <h2>Roommates</h2>
-
-      <select name="roommatesList" id="roommatesList" onChange="highlightRoommate()" multiple>
-      </select>
-
-      <div class="modals">        
-        <div id="roommatesControls">
-            
-          <input type="button" value="Add" name="Add" class="button" data-modal="addRoommate">
-          <input type="button" value="Edit" name="Edit" class="button" data-modal="editRoommate">
-          <input type="button" value="Delete" name="Delete" class="button" data-modal="deleteRoommate">
+    </header>
+    <div id="mainContent">
+        <div id="houseRules">
+            <h2>House Rules</h2>
+            <textarea disabled id="rules" cols="30" rows="5"></textarea>
+            <input id="changeRule" type="submit" value="Modify" onclick="SetRules()" />
         </div>
-        <div id="addRoommate" class="modal">
-          <div class="modal-content">
-            <div class="contact-form">
-              <a class="close">&times;</a>
-              <div class="openedModal">
-                <h2>Add New Roommate</h2>
-                <div>
-                  <input class="fname" type="text" name="name" placeholder="Name*" />
-                  <input type="text" name="email" placeholder="Email*" />
-                  <input type="text" name="phone" placeholder="Phone number" />
+
+        <div class="form-popup" id="myForm">
+            <!-- <form action="/action_page.php" class="form-container"> -->
+            <form class="form-container">
+                <h1 class="form-popupLogin">Login</h1>
+
+                <label><b>Email:</b></label>
+                <input type="text" placeholder="Enter Email" name="email" required id="userEmail"><br>
+
+                <label><b>Password</b></label>
+                <input type="password" placeholder="Enter Password" name="psw" required id="userPassword">
+
+                <button type="button" class="btn" onclick="validateUser()">Login</button>
+                <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+            </form>
+        </div>
+
+        <div id="addUpdateChore" class="modal">
+            <div class="modal-content">
+                <div class="contact-form">
+                    <a class="close">&times;</a>
+                    <div class="openedModal">
+                        <h2>Add New Roommate</h2>
+                        <div>
+                            <input class="choreModal" type="text" name="choreMoral" placeholder="Insert Chore" />
+                        </div>
+                        <button type="submit" onclick="AddUpdateChore()">Add</button>
+                    </div>
                 </div>
-                <button type="submit" onclick="AddNewRoommate()">Add</button>
-              </div>
             </div>
-          </div>
         </div>
-        <div id="editRoommate" class="modal">
-          <div class="modal-content">
-            <div class="contact-form">
-              <span class="close">&times;</span>
-              <div class="openedModal">
-                <h2>Edit Roommate's Info</h2>
-                <div>
-                  <input class="fname" type="text" name="name" placeholder="Name" />
-                  <input type="text" name="email" placeholder="Email" />
-                  <input type="text" name="phone" placeholder="Phone number" />
+
+        <!-- Add, Select, Edit and Delete roommates selectors and modals -->
+        <div id="roommates">
+            <h2>Roommates</h2>
+
+            <select name="roommatesList" id="roommatesList" onChange="highlightRoommate()" multiple>
+            </select>
+
+            <div class="modals">
+                <div id="roommatesControls">
+
+                    <input type="button" value="Add" name="Add" class="button" data-modal="addRoommate">
+                    <input type="button" value="Edit" name="Edit" class="button" data-modal="editRoommate">
+                    <input type="button" value="Delete" name="Delete" class="button" data-modal="deleteRoommate">
                 </div>
-                <button type="submit" onclick="EditSelectedRoommate()">Submit Edit</button>
-              </div>
+                <div id="addRoommate" class="modal">
+                    <div class="modal-content">
+                        <div class="contact-form">
+                            <a class="close">&times;</a>
+                            <div class="openedModal">
+                                <h2>Add New Roommate</h2>
+                                <div>
+                                    <input class="fname" type="text" name="name" placeholder="Name*" />
+                                    <input type="text" name="email" placeholder="Email*" />
+                                    <input type="text" name="phone" placeholder="Phone number" />
+                                </div>
+                                <button type="submit" onclick="AddNewRoommate()">Add</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="editRoommate" class="modal">
+                    <div class="modal-content">
+                        <div class="contact-form">
+                            <span class="close">&times;</span>
+                            <div class="openedModal">
+                                <h2>Edit Roommate's Info</h2>
+                                <div>
+                                    <input class="fname" type="text" name="name" placeholder="Name" />
+                                    <input type="text" name="email" placeholder="Email" />
+                                    <input type="text" name="phone" placeholder="Phone number" />
+                                </div>
+                                <button type="submit" onclick="EditSelectedRoommate()">Submit Edit</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="deleteRoommate" class="modal">
+                    <div class="modal-content">
+                        <div class="contact-form">
+                            <span class="close">&times;</span>
+                            <div class="openedModal">
+                                <!-- Maybe will need a FORM here in the future -->
+                                <h2>Delete</h2>
+                                <p>Are you sure you want delete roommate <span id="roommateMarketForDelete">a</span> from your Chore Scheduler list?</p>
+                                <button type="submit" onclick="DeleteSelectedRoommate()">Delete</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-        <div id="deleteRoommate" class="modal">
-          <div class="modal-content">
-            <div class="contact-form">
-              <span class="close">&times;</span>
-              <div class="openedModal">
-                  <!-- Maybe will need a FORM here in the future -->
-                <h2>Delete</h2>
-                <p>Are you sure you want delete roommate <span id="roommateMarketForDelete">a</span> from your Chore Scheduler list?</p>
-                <button type="submit" onclick="DeleteSelectedRoommate()">Delete</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>        
-    </div> <!-- End of Add, edit and delete roommate selectors and modals -->
+        </div> <!-- End of Add, edit and delete roommate selectors and modals -->
 
-    <div id="monthYear">
-      <div id="arrow-left" onClick="lastWeek()"></div>
-      <p id="currentMonth"></p>
-      <div id="arrow-right" onClick="nextWeek()"></div> 
-    </div>
-    
-    <div id="weekCalender">
+        <div id="monthYear">
+            <div id="arrow-left" onClick="lastWeek()"></div>
+            <p id="currentMonth"></p>
+            <div id="arrow-right" onClick="nextWeek()"></div>
+        </div>
 
-        <meta name="viewport" content="width=device-width, initial-scale=.2">
-        <table>
-            <thead>
-            <tr>
-                <th>
-                  <br>
-                  <span class="roommates-title-column">Roommates</span>
-                </th>
-                <th>
-                  <span class="day" id="sunday">1</span>
-                  <span class="long">Sunday</span>
-                  <span class="short">Sun</span>
-                </th>
-                <th>
-                  <span class="day" id="monday">2</span>
-                  <span class="long">Monday</span>
-                  <span class="short">Mon</span>
-                </th>
-                <th>
-                  <span class="day" id="tuesday">3</span>
-                  <span class="long">Tuesday</span>
-                  <span class="short">Tue</span>
-                </th>
-                <th>
-                  <span class="day" id="wednesday">4</span>
-                  <span class="long">Wednesday</span>
-                  <span class="short">Wed</span>
-                </th>
-                <th>
-                  <span class="day active" id="thursday">5</span>
-                  <span class="long">Thursday</span>
-                  <span class="short">Thur</span>
-                </th>
-                <th>
-                  <span class="day" id="friday">6</span>
-                  <span class="long">Friday</span>
-                  <span class="short">Fri</span>
-                </th>
-                <th>
-                  <span class="day" id="saturday">7</span>
-                  <span class="long">Saturday</span>
-                  <span class="short">Sat</span>
-                </th>
-            </tr>
-            </thead>
-            <tbody class="tableBody">
-              <tr>
-                <td class="roommateName"></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-              <!-- https://stackoverflow.com/questions/1391278/contenteditable-change-events to help handling changing td content and save in the server side -->
-            </tbody>
-        </table>
+        <div id="weekCalender">
+
+            <meta name="viewport" content="width=device-width, initial-scale=.2">
+            <table>
+                <thead>
+                    <tr>
+                        <th>
+                            <br>
+                            <span class="roommates-title-column">Roommates</span>
+                        </th>
+                        <th>
+                            <span class="day" id="sunday">1</span>
+                            <span class="long">Sunday</span>
+                            <span class="short">Sun</span>
+                        </th>
+                        <th>
+                            <span class="day" id="monday">2</span>
+                            <span class="long">Monday</span>
+                            <span class="short">Mon</span>
+                        </th>
+                        <th>
+                            <span class="day" id="tuesday">3</span>
+                            <span class="long">Tuesday</span>
+                            <span class="short">Tue</span>
+                        </th>
+                        <th>
+                            <span class="day" id="wednesday">4</span>
+                            <span class="long">Wednesday</span>
+                            <span class="short">Wed</span>
+                        </th>
+                        <th>
+                            <span class="day active" id="thursday">5</span>
+                            <span class="long">Thursday</span>
+                            <span class="short">Thur</span>
+                        </th>
+                        <th>
+                            <span class="day" id="friday">6</span>
+                            <span class="long">Friday</span>
+                            <span class="short">Fri</span>
+                        </th>
+                        <th>
+                            <span class="day" id="saturday">7</span>
+                            <span class="long">Saturday</span>
+                            <span class="short">Sat</span>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody class="tableBody">
+                    <tr>
+                        <td class="roommateName"></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <!-- https://stackoverflow.com/questions/1391278/contenteditable-change-events to help handling changing td content and save in the server side -->
+                </tbody>
+            </table>
+        </div>
     </div>
-</div>
-<script src="JS/add_edit_roomate.js"></script>
-<!--<script src="JS/add_edit_chores.js"></script>-->
-<script src="JS/change_week.js"></script>
-<script src="JS/login_form.js"></script>
-<script src="JS/validate_user.js"></script>
+    <script src="JS/add_edit_roomate.js"></script>
+    <!--<script src="JS/add_edit_chores.js"></script>-->
+    <script src="JS/change_week.js"></script>
+    <script src="JS/login_form.js"></script>
+    <script src="JS/validate_user.js"></script>
+    <script src="JS/api_helper.js"></script>
+    <script src="JS/roommate_rules.js"></script>
 </body>
 
 </html>

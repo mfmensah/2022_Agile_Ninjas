@@ -5,7 +5,7 @@ html {
 div#houseRules {
   width: 300px;
   border: 15px solid green;
-  padding: 50px;
+  padding: 15px;
   margin: 20px;
   background-color: dimgrey;
   float: left;
@@ -334,4 +334,9 @@ button.button:hover {
 /* Add some hover effects to buttons */
 .form-container .btn:hover, .open-button:hover {
   opacity: 1;
+}
+
+/*house rules textbox*/
+#changeRule {
+    visibility: hidden;
 }
