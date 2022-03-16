@@ -28,15 +28,16 @@ function sendInvitationEmail(email, name) {
 
 }
 
-// Gets the current selected roommate name and return either the name or the index in the select tag box
+// Gets the current selected roommate name or index value and return either the name or the index in the select tag box
 function getSelectedRoommateFromList(parameter) {
+    let selectedOptionBox = document.getElementById('roommatesList');
 
     switch (parameter) {
         case "name":
-            return document.getElementById('roommatesList').options[getSelectedRoommateFromList()].value;
+            return selectedOptionBox.options[selectedOptionBox.selectedIndex].value;
 
         default:
-            return document.getElementById('roommatesList').selectedIndex;
+            return selectedOptionBox.selectedIndex;
     }
 }
 
@@ -62,7 +63,8 @@ function AddOrUpdateRoomateToRows(origin) {
         let roommatesNamesOnTable = document.querySelectorAll('.roommateName');
 
         roommates.forEach(roommate => {
-            roommatesNamesOnTable[roommates.indexOf(roommate)].innerText = roommate.name;
+            console.log(roommatesNamesOnTable[roommates.indexOf(roommate)].innerHTML);
+            roommatesNamesOnTable[roommates.indexOf(roommate)].innerHTML = roommate.name;
         });
         
     } else {
@@ -119,6 +121,22 @@ function AddOrUpdateRoomateToRows(origin) {
             // Updating the table
             table.appendChild(new_tr_tag);
         });
+
+        // Display message to add new roommates if used deletes all roommates in array.
+        if (table.innerHTML === "") {
+            let tablebody_tag = document.querySelector(".tableBody");
+            let new_Tr_Placeholder = document.createElement("tr");
+            let new_Td_Placeholder = document.createElement("td");
+            let new_H1_Placeholder = document.createElement("h1");
+    
+            new_Td_Placeholder.setAttribute("colspan", 8)
+            new_Td_Placeholder.className = "roommateName";
+            new_H1_Placeholder.innerHTML = "Add a new roommate to see the weekly chore schedule.";
+    
+            new_Td_Placeholder.appendChild(new_H1_Placeholder);
+            new_Tr_Placeholder.appendChild(new_Td_Placeholder);
+            tablebody_tag.appendChild(new_Tr_Placeholder);
+        }
     }
 }
 
@@ -141,7 +159,7 @@ function UpdateRoommatesSelectList(origin) {
         addRoommateToOptionTag.onclick = highlightRoommate;
         selectListBox.add(addRoommateToOptionTag, undefined);
     });
-    
+
     // Calls AddOrUpdateRoomateToRows seding a string with the origin of the call to track from which modal it was called.
     AddOrUpdateRoomateToRows(origin);
 
@@ -278,12 +296,11 @@ closeBtns.forEach(function (btn) {
 // Highlight roommate when the name is clicked on from the roommates list
 function highlightRoommate() {
 
-    roommates.forEach(roommate => {
-        if (roommate.name === getSelectedRoommateFromList("name")) {
-            document.getElementById(roommate.name).style.backgroundColor = "white";
-        } else {
-            document.getElementById(roommate.name).style.backgroundColor = "#696969";
-        }
-    });
-
+    // roommates.forEach(roommate => {
+    //     if (roommate.name === getSelectedRoommateFromList("name")) {
+    //         document.getElementById(roommate.name).style.backgroundColor = "white";
+    //     } else {
+    //         document.getElementById(roommate.name).style.backgroundColor = "#696969";
+    //     }
+    // });
 }
