@@ -15,7 +15,7 @@ function getCurrentWeek() {
 
   dayOfWeek.forEach(day => {
 
-    var nextWeek = new Date(today.getFullYear(), today.getMonth(), dayOfWeek.indexOf(day) + today.getDate() - today.getDay());
+    let nextWeek = new Date(today.getFullYear(), today.getMonth(), dayOfWeek.indexOf(day) + today.getDate() - today.getDay());
     document.getElementById(day).innerHTML = nextWeek.getDate().toLocaleString();
     
   });
@@ -36,7 +36,7 @@ function changeWeek(weekOffset) {
   dayOfWeek.forEach(day => {
     
     // Change the weekly calendar
-    var nextWeek = new Date(today.getFullYear(), today.getMonth(), today.getDate() + weekOffset + dayOfWeek.indexOf(day) - today.getDay());
+    let nextWeek = new Date(today.getFullYear(), today.getMonth(), today.getDate() + weekOffset + dayOfWeek.indexOf(day) - today.getDay());
     document.getElementById(day).innerHTML = nextWeek.getDate().toLocaleString();
 
     // Update the Month displayed
