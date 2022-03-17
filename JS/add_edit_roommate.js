@@ -296,11 +296,11 @@ closeBtns.forEach(function (btn) {
 // Highlight roommate when the name is clicked on from the roommates list
 function highlightRoommate() {
 
-    // roommates.forEach(roommate => {
-    //     if (roommate.name === getSelectedRoommateFromList("name")) {
-    //         document.getElementById(roommate.name).style.backgroundColor = "white";
-    //     } else {
-    //         document.getElementById(roommate.name).style.backgroundColor = "#696969";
-    //     }
-    // });
+    roommates.forEach(roommate => {
+        if (roommate.name === getSelectedRoommateFromList("name")) {
+            document.getElementById(roommate.name).style.backgroundColor = "white";
+        } else {
+            document.getElementById(roommate.name).style.backgroundColor = "#696969";
+        }
+    });
 }
