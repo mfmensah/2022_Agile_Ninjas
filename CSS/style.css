@@ -108,10 +108,10 @@ tr span {
 #monthYear {
   display: grid;
   grid-template-areas: 
-  "rules . . . roommates"
-  "rules leftArrow month rightArrow roommates"
-  "rules leftArrow todayButton rightArrow roommates"
-  "calendar calendar calendar calendar calendar";
+  "rules rules . roommates roommates"
+  "rules rules month roommates roommates"
+  "rules rules todayButton roommates roommates"
+  "leftArrow calendar calendar calendar rightArrow";
   position: relative;
 }
 
