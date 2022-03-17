@@ -37,7 +37,7 @@ function setReadOnlyChores() {
 }
 
 function removeReadOnlyChores() {
-    const collection = document.getElementsByClassName("chore-input");
+    let collection = document.getElementsByClassName("chore-input");
     for (let i = 0; i < collection.length; i++) {
         collection[i].readOnly = false;
     }
