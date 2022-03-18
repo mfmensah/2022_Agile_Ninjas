@@ -138,7 +138,6 @@ tr span {
   grid-area: calendar;
   justify-self: center;
   padding-right: 50px;
-  background-color: ;
 }
 
 #jumpToTodayButton {
@@ -260,6 +259,7 @@ button.button:hover {
   display: inline-block;
   margin: 0.25rem 0px;
   cursor: pointer;
+  border: none;
 }
 
 .chore-checkbox {

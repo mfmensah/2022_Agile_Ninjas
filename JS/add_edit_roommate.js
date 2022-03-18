@@ -100,14 +100,14 @@ function AddOrUpdateRoomateToRows(origin) {
                     
                     let innerTdEditableInput = document.createElement('input');
                     innerTdEditableInput.className = "chore-input";
-                    innerTdEditableInput.setAttribute("contenteditable", "true");
 
                     innerTdEditableInput.onchange = addOrDeleteNewChoreLine;
 
                     innerTdEditableDiv.append(innerTdEditableInput);
 
                     let checkBox = document.createElement("INPUT");
-                    checkBox.onchange = handleCompleteCheck(indexTD, index);
+                    // checkBox.onchange = handleCompleteCheck(indexTD, index);
+                    checkBox.onchange = handleCompleteCheck;
                     checkBox.type = "checkbox";
                     checkBox.checked = false;
                     checkBox.setAttribute("id", indexTD + index);
@@ -145,10 +145,26 @@ function AddOrUpdateRoomateToRows(origin) {
 }
 
 // Handles checked events for complete checkbox
-function handleCompleteCheck(day, chore) {
-    var checkbox = document.getElementById(day + chore);
-    if (checkbox !== null && checkbox.checked) {
-        alert(day + " " + chore + " complete");
+function handleCompleteCheck(e) {
+    // var checkbox = document.getElementById(day + chore);
+    // if (checkbox !== null && checkbox.checked) {
+    //     alert(day + " " + chore + " complete");
+    // }
+
+    let getEventElementParent = e.target.parentNode;
+    let getSiblingFromEventElement = getEventElementParent.firstChild;
+
+    if (getSiblingFromEventElement.value.trim() === "") {
+        alert("Please, insert a valid chore to mark it as completed.");
+        e.target.checked = false;
+    } else if (e.target.checked) {
+        getEventElementParent.style.backgroundColor = "green";
+        getSiblingFromEventElement.readOnly = true;
+        getSiblingFromEventElement.style.backgroundColor = "transparent";
+    } else {
+        getEventElementParent.style.backgroundColor = "transparent";
+        getSiblingFromEventElement.readOnly = false;
+        getSiblingFromEventElement.style.backgroundColor = "white";
     }
 }
 
