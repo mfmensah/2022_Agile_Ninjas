@@ -18,6 +18,7 @@ Password: CVTC2022Agile!-
                 if (obj === "true") {
                     document.getElementById("roommatesControls").style.display = "inline";
                     removeReadOnlyChores();
+
                     closeForm();
 
                 } else {
@@ -28,3 +29,16 @@ Password: CVTC2022Agile!-
             }
         }
 }
+
+// Get the input field
+var passwordInput = document.getElementById("userPassword");
+
+// Execute a function when the user releases a key on the keyboard
+passwordInput.addEventListener("keyup", function(e) {
+    if (e.keyCode === 13) {
+
+        e.preventDefault();
+
+        validateUser();
+    }
+});
