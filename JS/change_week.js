@@ -24,7 +24,7 @@ function getCurrentWeek() {
   currentWeekOfTheMonth = month[today.getMonth()] + " " + today.getDate();
 
   // Highlight today on calendar
-  document.getElementById(dayOfWeek[today.getDay()]).style.backgroundColor = "white";
+  document.getElementById(dayOfWeek[today.getDay()]).style.backgroundColor = "gray";
 
   // Display current month on page load
   getActiveMonth();
@@ -45,7 +45,7 @@ function changeWeek(weekOffset) {
     // Update highlighting on today's date
     if (today.toISOString().split('T')[0] == nextWeek.toISOString().split('T')[0]) {
 
-      document.getElementById(dayOfWeek[today.getDay()]).style.backgroundColor = "white";
+      document.getElementById(dayOfWeek[today.getDay()]).style.backgroundColor = "gray";
     } else {
       document.getElementById(day).style.backgroundColor = "transparent";
     } 

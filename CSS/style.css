@@ -1,14 +1,13 @@
-html {
-  background-color: #696969;
+#html {
+  background-color: #16171d;
 }
 
 div#houseRules {
   width: 300px;
-  border: 15px solid green;
   padding: 15px;
   margin: 20px;
+  justify-self: center;
   background-color: dimgrey;
-  float: left;
   grid-area: rules;
 }
 
@@ -16,11 +15,9 @@ div#houseRules {
 div#roommates {
   width: 300px;
   height: 185px;
-  border: 15px solid green;
   margin: 20px;
   background-color: dimgrey;
-  float: right;
-  justify-self: end;
+  justify-self: center;
   grid-area: roommates;
 }
 
@@ -108,10 +105,10 @@ tr span {
 #monthYear {
   display: grid;
   grid-template-areas: 
-  "rules rules . roommates roommates"
-  "rules rules month roommates roommates"
-  "rules rules todayButton roommates roommates"
-  "leftArrow calendar calendar calendar rightArrow";
+  "rules rules lightButton darkButton roommates roommates"
+  "rules rules month month roommates roommates"
+  "rules rules todayButton todayButton roommates roommates"
+  "leftArrow calendar calendar calendar calendar rightArrow";
   position: relative;
 }
 
@@ -122,7 +119,7 @@ tr span {
   justify-self: end;
   border-top: 40px solid transparent;
   border-bottom: 40px solid transparent;
-  border-left: 40px solid rgb(0, 0, 0);
+  border-left: 40px solid rgb(255, 255, 255);
   grid-area: rightArrow;
 }
 
@@ -133,14 +130,15 @@ tr span {
   justify-self: start;
   border-top: 40px solid transparent;
   border-bottom: 40px solid transparent;
-  border-right: 40px solid rgb(0, 0, 0);
+  border-right: 40px solid rgb(255, 255, 255);
   grid-area: leftArrow;
 }
 
-#weekCalender {
+#weekCalendar {
   grid-area: calendar;
   justify-self: center;
   padding-right: 50px;
+  background-color: ;
 }
 
 #jumpToTodayButton {
@@ -150,6 +148,22 @@ tr span {
   height: 2em;
   border-radius: 30px;
   justify-self: center;
+}
+
+#dark-theme-button {
+  width: 8em;
+  height: 2em;
+  border-radius: 30px;
+  justify-self: center;
+  grid-area: darkButton;
+}
+
+#light-theme-button {
+  width: 8em;
+  height: 2em;
+  border-radius: 30px;
+  justify-self: center;
+  grid-area: lightButton;
 }
 
 #currentMonth {
@@ -362,4 +376,8 @@ button.button:hover {
 /*house rules textbox*/
 #changeRule {
     visibility: hidden;
+}
+
+textarea {
+  resize: none;
 }

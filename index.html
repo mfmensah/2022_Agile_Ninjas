@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html id="html" lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Chore Schedule</title>
@@ -22,7 +22,7 @@
         <div id="monthYear">
             <div id="houseRules">
                 <h2>House Rules</h2>
-                <textarea disabled id="rules" cols="30" rows="5"></textarea>
+                <textarea disabled id="rules" cols="30" rows="5" ></textarea>
                 <input id="changeRule" type="submit" value="Modify" onclick="SetRules()" />
             </div>
 
@@ -125,11 +125,12 @@
             <button type="button" id="jumpToTodayButton" onclick="jumpToToday()">Today</button>
             <div id="arrow-right" onClick="nextWeek()"></div>
             <!-- </div> -->
-
-            <div id="weekCalender">
+            <button id="dark-theme-button" onClick="darkTheme()">Dark Theme</button>
+            <button id="light-theme-button" onClick="lightTheme()">Light Theme</button>
+            <div id="weekCalendar">
 
                 <meta name="viewport" content="width=device-width, initial-scale=.2">
-                <table>
+                <table id="weekTable">
                     <thead>
                         <tr>
                             <th>
@@ -176,7 +177,7 @@
                     <tbody class="tableBody">
                         <tr>
                             <td class="roommateName" colspan="8">
-                                <h1>Please, login as an administrator and add a new roommate to see the weekly chore schedule.</h1>
+                                <h1 id="loginToModifyMessage">Please, login as an administrator and add a new roommate to see the weekly chore schedule.</h1>
                             </td>
                         </tr>
                         <!-- https://stackoverflow.com/questions/1391278/contenteditable-change-events to help handling changing td content and save in the server side -->
@@ -189,6 +190,7 @@
         <script src="JS/login_form.js"></script>
         <script src="JS/validate_user.js"></script>
         <script src="JS/roommate_rules.js"></script>
+        <script src="JS/themes.js"></script>
     </div>
 </body>
 </body>
