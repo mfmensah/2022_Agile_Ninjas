@@ -1,5 +1,5 @@
 /*
--Login information--
+-Login information-
 Email: administrator
 Password: CVTC2022Agile!-
  */
@@ -18,13 +18,11 @@ Password: CVTC2022Agile!-
                 if (obj === "true") {
                     document.getElementById("roommatesControls").style.display = "inline";
                     removeReadOnlyChores();
-
                     closeForm();
 
                 } else {
                     alert("The credentials entered are not an administrator.")
                     setReadOnlyChores();
-
               }
             }
         }
