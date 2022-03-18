@@ -138,6 +138,7 @@ tr span {
   grid-area: calendar;
   justify-self: center;
   padding-right: 50px;
+  background-color: #555;
 }
 
 #jumpToTodayButton {

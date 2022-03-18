@@ -14,7 +14,7 @@ function darkTheme() {
   document.getElementById("currentMonth").style.fontWeight = "bold";
   document.getElementById("currentMonth").style.fontSize = "3rem";
   document.getElementById("loginToModifyMessage").style.color = "black";
-  document.getElementById("weekCalendar").style.backgroundColor = "dodgerblue";
+  // document.getElementById("weekCalendar").style.backgroundColor = "dodgerblue";
   // document.getElementById("houseRules").style.backgroundColor = "pink";
   // document.getElementById("roommates").style.backgroundColor = "pink";
   // document.getElementById("tert").style.color = "white";
@@ -31,7 +31,7 @@ function lightTheme() {
   document.getElementById("currentMonth").style.fontWeight = "bold";
   document.getElementById("currentMonth").style.fontSize = "3rem";
   document.getElementById("loginToModifyMessage").style.color = "white";
-  document.getElementById("weekCalendar").style.backgroundColor = "darkgreen";
+  // document.getElementById("weekCalendar").style.backgroundColor = "darkgreen";
   // document.getElementById("houseRules").style.backgroundColor = "red";
   // document.getElementById("roommates").style.backgroundColor = "red";
   // document.getElementById("tert").style.color = "blacsk";
