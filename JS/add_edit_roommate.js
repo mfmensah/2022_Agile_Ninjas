@@ -180,7 +180,7 @@ function AddOrEditRoommate(name, email, phone) {
     roommates.push(newRoommateInfo);
 }
 
-// Closes the popup box/framte for adding, editing or deleting roommates 
+// Closes the popup box/frame for adding, editing or deleting roommates 
 function CloseCurrentModal(id) {
     document.querySelector("#" + id).style.display = "none";
 }
@@ -220,27 +220,18 @@ function AddNewRoommate() {
 
 function EditSelectedRoommate() {
     let roommateToUpdateInfo = getSelectedRoommateFromList("name");
-    // console.log(roommateToUpdateInfo);
     let roommateEmail = document.querySelector("#editRoommate input[name='email']").value;
     let origin = "FromEditSelectedRoommate"
-    // let loopCount = 1;
-    // let innerLoopCount = 1;
 
     if (ValidateEmail(roommateEmail)) {
 
         roommates.forEach(roommate => {
-
-            
             if (roommate.name === roommateToUpdateInfo) {
                 roommate.name = document.querySelector("#editRoommate input[name='name']").value;
                 roommate.email = document.querySelector("#editRoommate input[name='email']").value;
                 roommate.phone = document.querySelector("#editRoommate input[name='phone']").value;
-                // console.log("loop inside if condition for EditSelectedRoommate: " + innerLoopCount);
-                // innerLoopCount++;
                 UpdateRoommatesSelectList(origin);
             }
-            // console.log("loop inside roommate forEach loop for EditSelectedRoommate: " + loopCount);
-            // loopCount++;
         });
         CloseCurrentModal("editRoommate");
 
@@ -308,7 +299,6 @@ closeBtns.forEach(function (btn) {
 
 // Highlight roommate when the name is clicked on from the roommates list
 function highlightRoommate() {
-    let highlightThisRoommateName = getSelectedRoommateFromList("name");
 
     roommates.forEach(roommate => {
         if (roommate.name === getSelectedRoommateFromList("name")) {
