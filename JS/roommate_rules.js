@@ -7,7 +7,7 @@ function getRules() {
             var response = request_.responseText;
             var obj = JSON.parse(response);
 
-            console.log(obj);
+            // console.log(obj);
             document.getElementById("rules").value = obj;
         }
     }
@@ -23,7 +23,7 @@ function SetRules() {
             var response = request_.responseText;
             var obj = JSON.parse(response);
 
-            console.log(obj);
+            // console.log(obj);
             alert("House Rules have been updated successfully.");
         }
     }

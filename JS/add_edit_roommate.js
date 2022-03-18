@@ -63,8 +63,12 @@ function AddOrUpdateRoomateToRows(origin) {
         let roommatesNamesOnTable = document.querySelectorAll('.roommateName');
 
         roommates.forEach(roommate => {
-            console.log(roommatesNamesOnTable[roommates.indexOf(roommate)].innerHTML);
             roommatesNamesOnTable[roommates.indexOf(roommate)].innerHTML = roommate.name;
+
+            // Changing tr (table rows) id to new updated name and turning background color to unselected mode
+            roommatesNamesOnTable[roommates.indexOf(roommate)].parentNode.id = roommate.name;
+            document.getElementById(roommate.name).style.backgroundColor = "#696969";
+
         });
         
     } else {
@@ -206,7 +210,7 @@ function AddNewRoommate() {
 
         UpdateRoommatesSelectList();
 
-        // Close the window add new roomate window
+        // Close the window add new roommate window
         CloseCurrentModal("addRoommate");
     } else {
         alert("Please, enter new roommate's name and valid email to add to the list.");
@@ -215,19 +219,28 @@ function AddNewRoommate() {
 }
 
 function EditSelectedRoommate() {
-
-    let roomateEmail = document.querySelector("#editRoommate input[name='email']").value;
+    let roommateToUpdateInfo = getSelectedRoommateFromList("name");
+    // console.log(roommateToUpdateInfo);
+    let roommateEmail = document.querySelector("#editRoommate input[name='email']").value;
     let origin = "FromEditSelectedRoommate"
+    // let loopCount = 1;
+    // let innerLoopCount = 1;
 
-    if (ValidateEmail(roomateEmail)) {
+    if (ValidateEmail(roommateEmail)) {
 
         roommates.forEach(roommate => {
-            if (roommate.name === getSelectedRoommateFromList("name")) {
+
+            
+            if (roommate.name === roommateToUpdateInfo) {
                 roommate.name = document.querySelector("#editRoommate input[name='name']").value;
                 roommate.email = document.querySelector("#editRoommate input[name='email']").value;
                 roommate.phone = document.querySelector("#editRoommate input[name='phone']").value;
+                // console.log("loop inside if condition for EditSelectedRoommate: " + innerLoopCount);
+                // innerLoopCount++;
                 UpdateRoommatesSelectList(origin);
             }
+            // console.log("loop inside roommate forEach loop for EditSelectedRoommate: " + loopCount);
+            // loopCount++;
         });
         CloseCurrentModal("editRoommate");
 
@@ -295,6 +308,7 @@ closeBtns.forEach(function (btn) {
 
 // Highlight roommate when the name is clicked on from the roommates list
 function highlightRoommate() {
+    let highlightThisRoommateName = getSelectedRoommateFromList("name");
 
     roommates.forEach(roommate => {
         if (roommate.name === getSelectedRoommateFromList("name")) {

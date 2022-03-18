@@ -15,7 +15,7 @@ function darkTheme() {
   document.getElementById("weekCalendar").style.backgroundColor = "dodgerblue";
   document.getElementById("houseRules").style.backgroundColor = "pink";
   document.getElementById("roommates").style.backgroundColor = "pink";
-  document.getElementById("tert").style.color = "white";
+  // document.getElementById("tert").style.color = "white";
 
 }
 
@@ -30,5 +30,5 @@ function lightTheme() {
   document.getElementById("weekCalendar").style.backgroundColor = "blue";
   document.getElementById("houseRules").style.backgroundColor = "red";
   document.getElementById("roommates").style.backgroundColor = "red";
-  document.getElementById("tert").style.color = "black";
+  // document.getElementById("tert").style.color = "black";
 }
