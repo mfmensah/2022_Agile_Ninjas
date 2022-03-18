@@ -176,8 +176,11 @@ function AddOrEditRoommate(name, email, phone) {
         email: email,
         phone: phone
     };
+    //Send roommate invitations
     sendInvitationEmail(email, name);
     roommates.push(newRoommateInfo);
+    //Save roommate to database
+    AddRoommateToDB(name, email, phone);
 }
 
 // Closes the popup box/frame for adding, editing or deleting roommates 
@@ -308,3 +311,52 @@ function highlightRoommate() {
         }
     });
 }
+
+function AddRoommateToDB(name, email, phone) {
+    postUserData("https://nitroco.us/cs/api/users?name=" + name + "&email=" + email + "&phone=" + phone, { answer: 200 })
+        .then(data => {
+            console.log(data);
+        });
+}
+
+function LoadUserDate() {
+    fetch('https://nitroco.us/cs/api/users')
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+
+            //Get Users
+            for (var i = 0; i < data.length; i++) {
+                var obj = data[i];
+
+                let newRoommateInfo = {
+                    name: obj.Name,
+                    email: obj.Email,
+                    phone: obj.Phone
+                };
+
+                roommates.push(newRoommateInfo);
+            }
+
+            UpdateRoommatesSelectList();
+            setReadOnlyChores();
+        });
+}
+
+async function postUserData(url = '', data = {}) {
+    const response = await fetch(url, {
+        method: 'POST',
+        mode: 'no-cors',
+        cache: 'no-cache',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        redirect: 'follow',
+        referrerPolicy: 'no-referrer',
+        body: JSON.stringify(data)
+    });
+    return response.text;
+}
+
+//Loads user data into table
+LoadUserDate();
