@@ -9,6 +9,8 @@
 <body onLoad="getCurrentWeek()">
     <header>
         <div id="loginBanner">
+          <button id="dark-theme-button" onClick="darkTheme()">Dark Theme</button>
+          <button id="light-theme-button" onClick="lightTheme()">Light Theme</button>
             <div id="loginButton">
                 <button type="button" class="loginButton" onclick="openForm()">Login</button>
             </div>
@@ -31,10 +33,10 @@
                 <form class="form-container">
                     <h1 class="form-popupLogin">Login</h1>
 
-                    <label><b>Email</b></label>
+                    <label>Email</label>
                     <input type="text" placeholder="Enter Email" name="email" required id="userEmail"><br>
 
-                    <label><b>Password</b></label>
+                    <label>Password</label>
                     <input type="password" placeholder="Enter Password" name="psw" required id="userPassword">
 
                     <button type="button" class="btn" onclick="validateUser()">Login</button>
@@ -51,7 +53,7 @@
                             <div>
                                 <input class="choreModal" type="text" name="choreMoral" placeholder="Insert Chore" />
                             </div>
-                            <button type="submit" onclick="AddUpdateChore()">Add</button>
+                            <button class="submitButton" type="submit" onclick="AddUpdateChore()">Add</button>
                         </div>
                     </div>
                 </div>
@@ -125,8 +127,7 @@
             <button type="button" id="jumpToTodayButton" onclick="jumpToToday()">Today</button>
             <div id="arrow-right" onClick="nextWeek()"></div>
             <!-- </div> -->
-            <button id="dark-theme-button" onClick="darkTheme()">Dark Theme</button>
-            <button id="light-theme-button" onClick="lightTheme()">Light Theme</button>
+
             <div id="weekCalendar">
 
                 <meta name="viewport" content="width=device-width, initial-scale=.2">
