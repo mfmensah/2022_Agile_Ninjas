@@ -4,10 +4,8 @@ function openForm() {
 
 function closeForm() {
     document.getElementById("myForm").style.display = "none";
-    document.getElementById('login-button').style.display = 'none';
-    document.getElementById('logout-button').style.display = 'inline';
     document.getElementById("rules").disabled = false;
-    //document.getElementById("changeRule").style.visibility = 'visible';
+
 
 }
 
