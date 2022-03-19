@@ -9,6 +9,8 @@
 <body onLoad="getCurrentWeek()">
     <header>
         <div id="loginBanner">
+          <button id="dark-theme-button" onClick="darkTheme()">Dark Theme</button>
+          <button id="light-theme-button" onClick="lightTheme()">Light Theme</button>
             <div id="loginButton">
                 <button type="button" class="loginButton" onclick="openForm()">Login</button>
             </div>
@@ -125,8 +127,7 @@
             <button type="button" id="jumpToTodayButton" onclick="jumpToToday()">Today</button>
             <div id="arrow-right" onClick="nextWeek()"></div>
             <!-- </div> -->
-            <button id="dark-theme-button" onClick="darkTheme()">Dark Theme</button>
-            <button id="light-theme-button" onClick="lightTheme()">Light Theme</button>
+
             <div id="weekCalendar">
 
                 <meta name="viewport" content="width=device-width, initial-scale=.2">

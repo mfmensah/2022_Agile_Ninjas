@@ -105,7 +105,7 @@ tr span {
 #monthYear {
   display: grid;
   grid-template-areas: 
-  "rules rules lightButton darkButton roommates roommates"
+  "rules rules . . roommates roommates"
   "rules rules month month roommates roommates"
   "rules rules todayButton todayButton roommates roommates"
   "leftArrow calendar calendar calendar calendar rightArrow";
@@ -136,8 +136,7 @@ tr span {
 
 #weekCalendar {
   grid-area: calendar;
-  justify-self: center;
-  padding-right: 50px;
+  padding: 20px;
   background-color: #555;
 }
 
@@ -248,6 +247,8 @@ button.button {
   padding: 0 0 3px 0;
   font-size: 16px;
   cursor: pointer;
+  
+  
 }
 button.button:hover {
   border-bottom: #a99567 1px solid;
@@ -287,6 +288,21 @@ button.button:hover {
   float: right;
   display: none;
 
+}
+
+.loginButton {
+  width: 8em;
+  height: 2em;
+  border-radius: 30px;
+  justify-self: center;
+
+}
+
+.logoutButton {
+  width: 8em;
+  height: 2em;
+  border-radius: 30px;
+  justify-self: center;
 }
 
 /* Login Pop-up */
