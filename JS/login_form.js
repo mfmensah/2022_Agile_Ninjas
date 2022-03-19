@@ -6,7 +6,6 @@ function closeForm() {
     document.getElementById("myForm").style.display = "none";
     document.getElementById("rules").disabled = false;
 
-
 }
 
 
