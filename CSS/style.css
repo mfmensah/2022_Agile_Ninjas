@@ -337,7 +337,9 @@ button.button:hover {
   color: #999;
   max-width: 300px;
   padding: 15px;
+  margin: 15px;
   background-color: #fff;
+  border: 1px solid #1c87c9;
 }
 
 /* popup input fields */
