@@ -279,7 +279,7 @@ button.button:hover {
   width: 5em;
   height: 2em;
   float: right;
-
+  margin-right: 25px;
 }
 
 #logoutButton {
@@ -287,7 +287,7 @@ button.button:hover {
   height: 2em;
   float: right;
   display: none;
-
+  margin-right: 25px;
 }
 
 .loginButton {
