@@ -13,7 +13,6 @@ function darkTheme() {
   document.getElementById("current-month").style.color = "white";
   document.getElementById("current-month").style.fontWeight = "bold";
   document.getElementById("current-month").style.fontSize = "3rem";
-  document.getElementById("loginToModifyMessage").style.color = "black";
 
 }
 
@@ -26,5 +25,4 @@ function lightTheme() {
   document.getElementById("current-month").style.color = "black";
   document.getElementById("current-month").style.fontWeight = "bold";
   document.getElementById("current-month").style.fontSize = "3rem";
-  document.getElementById("loginToModifyMessage").style.color = "white";
 }
