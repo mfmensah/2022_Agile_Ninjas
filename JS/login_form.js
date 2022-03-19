@@ -4,7 +4,7 @@ function openForm() {
 
 function closeForm() {
     document.getElementById("myForm").style.display = "none";
-    document.getElementById("rules").disabled = false;
+    //document.getElementById("rules").disabled = false;
 
 }
 

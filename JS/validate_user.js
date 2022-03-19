@@ -19,6 +19,7 @@ Password: CVTC2022Agile!-
                     document.getElementById("roommatesControls").style.display = "inline";
                     document.getElementById("changeRule").style.visibility = 'visible';
                     document.getElementById('logout-button').style.display = 'inline';
+                    document.getElementById("rules").disabled = false;
                     document.getElementById('login-button').style.display = 'none';
                     removeReadOnlyChores();
                     closeForm();
@@ -27,6 +28,7 @@ Password: CVTC2022Agile!-
                 } else {
                     alert("The credentials entered are not an administrator.")
                     document.getElementById('login-button').style.display = 'none';
+                    document.getElementById("rules").disabled = true;
                     document.getElementById('logout-button').style.display = 'inline';
                     setReadOnlyChores();
               }
