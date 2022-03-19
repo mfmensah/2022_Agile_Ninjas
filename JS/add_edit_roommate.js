@@ -41,15 +41,41 @@ function getSelectedRoommateFromList(parameter) {
     }
 }
 
-// Adds or delete new chore line when user add content or clean line
+function CheckIfInputIsBlanked(inputElement) {
+
+}
+
+// Adds or delete new chore line when user add content or clean line but it's not the last one
 function addOrDeleteNewChoreLine(e) {
-    let parentOfOTagChanged = e.target.parentElement;
-    let nextSibling = parentOfOTagChanged.nextSibling;
-    
-    if (e.target.value !== "") {
-        nextSibling.style.display = "block";
-    } else {
-        parentOfOTagChanged.style.display = "none";
+    let parentOfInputChanged = e.target.parentElement;
+    let getCellChanged = parentOfInputChanged.parentElement; 
+
+    // Maybe reconsider this code in the future and allow white spaces but not empty chore just like asana.
+    if (e.target.value.trim() !== "" && parentOfInputChanged.nextSibling === null) {
+
+        let innerTdEditableDiv = document.createElement('div');
+
+        let innerTdEditableInput = document.createElement('input');
+        innerTdEditableInput.className = "chore-input";
+
+        innerTdEditableInput.onchange = addOrDeleteNewChoreLine;
+
+        innerTdEditableDiv.append(innerTdEditableInput);
+
+        let checkBox = document.createElement("INPUT");
+        checkBox.onchange = handleCompleteCheck;
+        checkBox.type = "checkbox";
+        checkBox.checked = false;
+        checkBox.className = "input-checkbox"
+        innerTdEditableDiv.append(checkBox);
+
+        getCellChanged.append(innerTdEditableDiv);
+
+    } else if (e.target.value.trim() === "" && parentOfInputChanged.nextSibling === null ) {
+        alert("White spaces are not valid chore in this house!");
+        e.target.value = "";
+    } else if (e.target.value.trim() === "") {
+        parentOfInputChanged.remove();
     }
 
 }
@@ -89,14 +115,14 @@ function AddOrUpdateRoomateToRows(origin) {
                 new_empty_td_tag.setAttribute("class", "addUpdateChore " + currentWeekOfTheMonth);
                 new_empty_td_tag.setAttribute("id", dayOfWeek[indexTD]);
 
-                for (let index = 0; index < 5; index++) {
+                // for (let index = 0; index < 5; index++) {
                     let innerTdEditableDiv = document.createElement('div');
 
-                    if (index === 0) {
-                        innerTdEditableDiv.style.display = "block";
-                    } else {
-                        innerTdEditableDiv.style.display = "none";
-                    }
+                    // if (index === 0) {
+                    //     innerTdEditableDiv.style.display = "block";
+                    // } else {
+                    //     innerTdEditableDiv.style.display = "none";
+                    // }
                     
                     let innerTdEditableInput = document.createElement('input');
                     innerTdEditableInput.className = "chore-input";
@@ -110,13 +136,13 @@ function AddOrUpdateRoomateToRows(origin) {
                     checkBox.onchange = handleCompleteCheck;
                     checkBox.type = "checkbox";
                     checkBox.checked = false;
-                    checkBox.setAttribute("id", indexTD + index);
+                    // checkBox.setAttribute("id", indexTD + index);
                     checkBox.className = "input-checkbox"
                     innerTdEditableDiv.append(checkBox);
 
                     new_empty_td_tag.append(innerTdEditableDiv);
 
-                }
+                // }
 
                 new_tr_tag.append(new_empty_td_tag);
 
