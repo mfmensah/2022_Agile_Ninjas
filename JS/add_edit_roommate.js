@@ -398,5 +398,6 @@ async function postUserData(url = '', data = {}) {
     return response.text;
 }
 
+
 //Loads user data into table
 LoadUserDate();
