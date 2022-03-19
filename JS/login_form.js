@@ -7,7 +7,8 @@ function closeForm() {
     document.getElementById('login-button').style.display = 'none';
     document.getElementById('logout-button').style.display = 'inline';
     document.getElementById("rules").disabled = false;
-    document.getElementById("changeRule").style.visibility = 'visible';
+    //document.getElementById("changeRule").style.visibility = 'visible';
+
 }
 
 

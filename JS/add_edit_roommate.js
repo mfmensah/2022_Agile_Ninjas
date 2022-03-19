@@ -148,6 +148,7 @@ function AddOrUpdateRoomateToRows(origin) {
             table.appendChild(new_tr_tag);
         });
 
+
         // Display message to add new roommates if used deletes all roommates in array.
         if (table.innerHTML === "") {
             let tablebody_tag = document.querySelector(".tableBody");
