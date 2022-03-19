@@ -7,32 +7,24 @@ document.onload = darkTheme();
 // A dark theme that is easy on the eyes
 function darkTheme() {
   document.getElementById("html").style.backgroundColor = "#16171d";
-  document.getElementById("loginBanner").style.backgroundColor = "dodgerblue";
+  document.getElementById("login-banner").style.backgroundColor = "dodgerblue";
   document.getElementById("arrow-right").style.borderLeft = "40px solid rgb(255, 255, 255)";
   document.getElementById("arrow-left").style.borderRight = "40px solid rgb(255, 255, 255)";
-  document.getElementById("currentMonth").style.color = "white";
-  document.getElementById("currentMonth").style.fontWeight = "bold";
-  document.getElementById("currentMonth").style.fontSize = "3rem";
+  document.getElementById("current-month").style.color = "white";
+  document.getElementById("current-month").style.fontWeight = "bold";
+  document.getElementById("current-month").style.fontSize = "3rem";
   document.getElementById("loginToModifyMessage").style.color = "black";
-  // document.getElementById("weekCalendar").style.backgroundColor = "dodgerblue";
-  // document.getElementById("houseRules").style.backgroundColor = "pink";
-  // document.getElementById("roommates").style.backgroundColor = "pink";
-  // document.getElementById("tert").style.color = "white";
 
 }
 
 // A lighter theme for users
 function lightTheme() {
   document.getElementById("html").style.backgroundColor = "white";
-  document.getElementById("loginBanner").style.backgroundColor = "darkgreen";
+  document.getElementById("login-banner").style.backgroundColor = "darkgreen";
   document.getElementById("arrow-right").style.borderLeft = "40px solid rgb(0, 0, 0)";
   document.getElementById("arrow-left").style.borderRight = "40px solid rgb(0, 0, 0)";
-  document.getElementById("currentMonth").style.color = "black";
-  document.getElementById("currentMonth").style.fontWeight = "bold";
-  document.getElementById("currentMonth").style.fontSize = "3rem";
+  document.getElementById("current-month").style.color = "black";
+  document.getElementById("current-month").style.fontWeight = "bold";
+  document.getElementById("current-month").style.fontSize = "3rem";
   document.getElementById("loginToModifyMessage").style.color = "white";
-  // document.getElementById("weekCalendar").style.backgroundColor = "darkgreen";
-  // document.getElementById("houseRules").style.backgroundColor = "red";
-  // document.getElementById("roommates").style.backgroundColor = "red";
-  // document.getElementById("tert").style.color = "blacsk";
 }

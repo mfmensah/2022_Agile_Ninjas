@@ -7,7 +7,7 @@ const dayOfWeek = ["sunday", "monday", "tuesday", "wednesday", "thursday", "frid
 // get current month
 function getActiveMonth() {
 
-  document.getElementById("currentMonth").innerHTML = month[today.getMonth()] + " " + today.getFullYear();
+  document.getElementById("current-month").innerHTML = month[today.getMonth()] + " " + today.getFullYear();
   
 }
 
@@ -40,7 +40,7 @@ function changeWeek(weekOffset) {
     document.getElementById(day).innerHTML = nextWeek.getDate().toLocaleString();
 
     // Update the Month displayed
-    document.getElementById("currentMonth").innerHTML = month[nextWeek.getMonth()] + " " + nextWeek.getFullYear();
+    document.getElementById("current-month").innerHTML = month[nextWeek.getMonth()] + " " + nextWeek.getFullYear();
 
     // Update highlighting on today's date
     if (today.toISOString().split('T')[0] == nextWeek.toISOString().split('T')[0]) {
