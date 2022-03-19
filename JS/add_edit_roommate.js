@@ -41,10 +41,6 @@ function getSelectedRoommateFromList(parameter) {
     }
 }
 
-function CheckIfInputIsBlanked(inputElement) {
-
-}
-
 // Adds or delete new chore line when user add content or clean line but it's not the last one
 function addOrDeleteNewChoreLine(e) {
     let parentOfInputChanged = e.target.parentElement;
@@ -236,9 +232,9 @@ function ValidateEmail(mail) {
     var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
     
     if(mail.match(mailformat)) {
-        return (true)
+        return (true);
     } else {
-        return (false)
+        return (false);
     }
 }
 
@@ -249,7 +245,7 @@ function AddNewRoommate() {
     let newRoomateEmail = document.querySelector("#addRoommate input[name='email']").value;
     let newRoomatePhone = document.querySelector("#addRoommate input[name='phone']").value;
 
-    if (newRoomateName !== "" && newRoomateEmail !== "" && ValidateEmail(newRoomateEmail)) {
+    if (newRoomateName.trim() !== "" && newRoomateEmail !== "" && ValidateEmail(newRoomateEmail)) {
 
         AddOrEditRoommate(newRoomateName, newRoomateEmail, newRoomatePhone);
 
@@ -258,30 +254,32 @@ function AddNewRoommate() {
         // Close the window add new roommate window
         CloseCurrentModal("addRoommate");
     } else {
-        alert("Please, enter new roommate's name and valid email to add to the list.");
+        alert("Please, enter new roommate's with valid name and valid email to add to the list.");
     }
 
 }
 
 function EditSelectedRoommate() {
     let roommateToUpdateInfo = getSelectedRoommateFromList("name");
+    let roommateName = document.querySelector("#editRoommate input[name='name']").value;
     let roommateEmail = document.querySelector("#editRoommate input[name='email']").value;
-    let origin = "FromEditSelectedRoommate"
+    let origin = "FromEditSelectedRoommate";
 
-    if (ValidateEmail(roommateEmail)) {
-
+    if (!ValidateEmail(roommateEmail) ) {
+        alert("Please, enter valid email address dd to update roommate's info.");
+    } else if (roommateName.trim() === ""){
+        alert("Please, enter valid roommate name to update roommate's info.");
+    } else {
         roommates.forEach(roommate => {
             if (roommate.name === roommateToUpdateInfo) {
-                roommate.name = document.querySelector("#editRoommate input[name='name']").value;
-                roommate.email = document.querySelector("#editRoommate input[name='email']").value;
+                roommate.name = roommateName;
+                roommate.email = roommateEmail;
                 roommate.phone = document.querySelector("#editRoommate input[name='phone']").value;
                 UpdateRoommatesSelectList(origin);
             }
         });
         CloseCurrentModal("editRoommate");
 
-    } else {
-        alert("Please, enter valid email address to add to update roommate info.");
     }
 }
 
@@ -347,7 +345,7 @@ function highlightRoommate() {
 
     roommates.forEach(roommate => {
         if (roommate.name === getSelectedRoommateFromList("name")) {
-            document.getElementById(roommate.name).style.backgroundColor = "white";
+            document.getElementById(roommate.name).style.backgroundColor = "silver";
         } else {
             document.getElementById(roommate.name).style.backgroundColor = "#696969";
         }
