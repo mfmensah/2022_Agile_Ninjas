@@ -254,6 +254,9 @@ button.button:hover {
   border-bottom: #a99567 1px solid;
   color: #a99567;
 }
+#delete-roommate-button{
+  background-color: #c91c1c;
+}
 
 .chore-input {
   text-align: start;
