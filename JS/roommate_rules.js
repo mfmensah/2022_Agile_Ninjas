@@ -24,7 +24,7 @@ function SetRules() {
             var obj = JSON.parse(response);
 
             // console.log(obj);
-            alert("House Rules have been updated successfully.");
+            alertDialogBox("House Rules have been updated successfully.");
         }
     }
 }

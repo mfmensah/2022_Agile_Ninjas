@@ -59,6 +59,19 @@
                 </div>
             </div>
 
+            <div id="alertDialogBox" class="modal">
+                <div class="modal-content">
+                    <div class="contact-form">
+                        <span class="close">&times;</span>
+                        <div class="openedModal">
+                            <!-- <h2>Delete</h2> -->
+                            <h3></h3>
+                            <button type="submit" id="delete-roommate-button" onclick="alertDialogBox()">OK</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <!-- Add, Select, Edit and Delete roommates selectors and modals -->
             <div id="roommates">
                 <h2>Roommates</h2>
@@ -186,6 +199,7 @@
                 </table>
             </div>
         </div>
+        <script src="JS/alertDialogBox.js"></script>
         <script src="JS/change_week.js"></script>
         <script src="JS/add_edit_roommate.js"></script>
         <script src="JS/login_form.js"></script>
@@ -194,6 +208,4 @@
         <script src="JS/themes.js"></script>
     </div>
 </body>
-</body>
-
 </html>

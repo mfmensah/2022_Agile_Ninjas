@@ -26,7 +26,7 @@ function validateUser() {
 
 
                 } else {
-                    alert("The credentials entered are not an administrator.")
+                    alertDialogBox("The credentials entered are not an administrator.")
                     document.getElementById('login-button').style.display = 'none';
                     document.getElementById("rules").disabled = true;
                     document.getElementById('logout-button').style.display = 'inline';

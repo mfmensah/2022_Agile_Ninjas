@@ -9,24 +9,24 @@ window.onclick = function (event) {
 };
 
 
-function sendInvitationEmail(email, name) {
-    Email.send({
-        Host: "nitroco.us",
-        Port: 25,
-        Username: "chorescheduler",
-        Password: "agileninjas",
-        To: email,
-        From: "chorescheduler@nitroco.us",
-        Subject: "Invitation to use Chore Scheduler",
-        Body: "<html><h4> Hello, <strong>" + name + "</strong ></h4 ><p>You were invited to join Chore Scheduler. Please click the link below to proceed.</p><a href=\"https://mfmensah.github.io/2022_Agile_Ninjas/index.html\">View your chores</a><br></br><em>The Agile Ninjas</em><br><br><p>Please ignore this email if you don't recognize it. Thank you.</p></html>"
-    })
-        .then(function (message) {
-            if (message === 'OK') {
-                alert("An email invitation has been sent to " + name);
-            }
-        });
+// function sendInvitationEmail(email, name) {
+//     Email.send({
+//         Host: "nitroco.us",
+//         Port: 25,
+//         Username: "chorescheduler",
+//         Password: "agileninjas",
+//         To: email,
+//         From: "chorescheduler@nitroco.us",
+//         Subject: "Invitation to use Chore Scheduler",
+//         Body: "<html><h4> Hello, <strong>" + name + "</strong ></h4 ><p>You were invited to join Chore Scheduler. Please click the link below to proceed.</p><a href=\"https://mfmensah.github.io/2022_Agile_Ninjas/index.html\">View your chores</a><br></br><em>The Agile Ninjas</em><br><br><p>Please ignore this email if you don't recognize it. Thank you.</p></html>"
+//     })
+//         .then(function (message) {
+//             if (message === 'OK') {
+//                 alertDialogBox("An email invitation has been sent to " + name);
+//             }
+//         });
 
-}
+// }
 
 // Gets the current selected roommate name or index value and return either the name or the index in the select tag box
 function getSelectedRoommateFromList(parameter) {
@@ -68,7 +68,7 @@ function addOrDeleteNewChoreLine(e) {
         getCellChanged.append(innerTdEditableDiv);
 
     } else if (e.target.value.trim() === "" && parentOfInputChanged.nextSibling === null ) {
-        alert("White spaces are not valid chore in this house!");
+        alertDialogBox("White spaces are not valid chore in this house!");
         e.target.value = "";
     } else if (e.target.value.trim() === "") {
         parentOfInputChanged.remove();
@@ -155,16 +155,12 @@ function PopulateTableOnPageLoad() {
 
 // Handles checked events for complete checkbox
 function handleCompleteCheck(e) {
-    // var checkbox = document.getElementById(day + chore);
-    // if (checkbox !== null && checkbox.checked) {
-    //     alert(day + " " + chore + " complete");
-    // }
 
     let getEventElementParent = e.target.parentNode;
     let getSiblingFromEventElement = getEventElementParent.firstChild;
 
     if (getSiblingFromEventElement.value.trim() === "") {
-        alert("Please, insert a valid chore to mark it as completed.");
+        alertDialogBox("Please, insert a valid chore to mark it as completed.");
         e.target.checked = false;
     } else if (e.target.checked) {
         getEventElementParent.style.backgroundColor = "green";
@@ -238,7 +234,7 @@ function AddNewRoommate() {
         // Close the window add new roommate window
         CloseCurrentModal("addRoommate");
     } else {
-        alert("Please, enter new roommate's with valid name and valid email to add to the list.");
+        alertDialogBox("Please, enter new roommate's with valid name and valid email to add to the list.");
     }
 
 }
@@ -250,9 +246,9 @@ function EditSelectedRoommate() {
     let roommatesNamesOnTable = document.querySelectorAll('.roommateName');
 
     if (!ValidateEmail(roommateEmail) ) {
-        alert("Please, enter valid email address dd to update roommate's info.");
+        alertDialogBox("Please, enter valid email address dd to update roommate's info.");
     } else if (roommateName.trim() === ""){
-        alert("Please, enter valid roommate name to update roommate's info.");
+        alertDialogBox("Please, enter valid roommate name to update roommate's info.");
     } else {
         roommates.forEach(roommate => {
             if (roommate.name === roommateToUpdateInfo) {
@@ -310,7 +306,7 @@ modalBtns.forEach(function (btn) {
         let modal = btn.getAttribute("data-modal");
 
         if ((modal === "deleteRoommate" || modal === "editRoommate") && roommateSelected <= "-1") {
-            alert("Please, select a roommate to be edited or deleted");
+            alertDialogBox("Please, select a roommate to be edited or deleted");
 
         } else if (modal === "editRoommate") {
             DisplaySelectedRoommateInfoOnModal();
@@ -347,12 +343,12 @@ function highlightRoommate() {
     });
 }
 
-function AddRoommateToDB(name, email, phone) {
-    postUserData("https://nitroco.us/cs/api/users?name=" + name + "&email=" + email + "&phone=" + phone, { answer: 200 })
-        .then(data => {
-            console.log(data);
-        });
-}
+// function AddRoommateToDB(name, email, phone) {
+//     postUserData("https://nitroco.us/cs/api/users?name=" + name + "&email=" + email + "&phone=" + phone, { answer: 200 })
+//         .then(data => {
+//             console.log(data);
+//         });
+// }
 
 function LoadUserDate() {
     fetch('https://nitroco.us/cs/api/users')
